@@ -1,0 +1,67 @@
+.Start {
+    margin: 70px 0 70px 0;
+    background: transparent;
+    position: relative;
+}
+
+.Start button {
+    position: absolute;
+    background-image: url(./img/btn.svg);
+    background-repeat: no-repeat;
+    background-position: top center;
+    color: transparent;
+    width: 312px;
+    height: 114px;
+    background-size: contain;
+    bottom: -60px;
+    transition: all 0.3s ease;
+}
+
+.Start button:hover {
+    background-image: url(./img/btn_h.png);
+}
+
+.start-logo {
+    border: 1px solid #7A7A7A;
+    display: inline-block;
+    padding: 13px 0 0 0;
+    background: #ffffff;
+    border-bottom: none;
+}
+
+.start-header {
+    padding: 25px 55px;
+    background: #ffffff;
+    border: 1px solid #7A7A7A;
+    text-align: center;
+    border-bottom: none;
+}
+
+.start-header img {
+    width: 100%;
+}
+
+.start-header .sub-title {
+    font-size: 36px;
+}
+
+.start-content {
+    padding: 35px 55px 75px 55px;
+    background: #ffffff;
+    border: 1px solid #7A7A7A;
+}
+
+.start-content span {
+    font-size: 22px;
+    line-height: 40px;
+    margin-bottom: 15px;
+    font-weight: 400;
+    display: inline-block;
+}
+
+.start-content p {
+    font-size: 28px;
+    font-weight: 400;
+    color: #47A3F0;
+    font-weight: bold;
+}

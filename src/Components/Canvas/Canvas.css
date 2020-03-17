@@ -1,0 +1,13 @@
+.Canvas{
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+
+.Canvas.start {
+    padding-bottom: 250px;
+    background-image: url(./img/kuanu.png), url(./img/billy.png), url(./img/ilon.png);
+    background-repeat: no-repeat;
+    background-position: left bottom, center bottom, right bottom;
+    background-size: 27%, 43%, 35%;
+}
