@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Start.css';
+import { Context } from '../../context';
 import logo from './img/start-logo.svg'
 import title from './img/title.svg'
 
 function Start() {
+    const { changeLevel } = useContext(Context);
+
     const ist = {
         fontSize: '30px',
         fontWeight: 'normal'
     }
+
     return (
         <div className="Start">
             <span className="start-logo">
@@ -29,7 +33,7 @@ function Start() {
                     <i style={ist}>П</i>осмотрим, сможешь ли ты помочь иностранцам<br />и самому не попасть в непростую ситуацию!
                 </p>
             </div>
-            <button>Играть</button>
+            <button onClick={changeLevel}>Играть</button>
         </div>
     );
 }
