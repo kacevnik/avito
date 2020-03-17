@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Canvas.css';
 import Start from '../Start';
+import Select from '../Select';
 
 function Canvas({ level }) {
 
@@ -21,6 +22,7 @@ function Canvas({ level }) {
         <div className={cls.join(' ')} style={style} onMouseMove={(e) => paralax(e)}>
             <div className="container">
                 {level === 'start' ? (<Start />) : ('')}
+                {level === 'select' ? (<Select />) : ('')}
             </div>
         </ div >
     );
