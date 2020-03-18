@@ -110,6 +110,59 @@
     width: 100%;
 }
 
+.game-navbar {
+    display: flex;
+}
+
+.game-nav-m {
+    display: flex;
+    border-right: 1px solid #7a7a7a;
+    min-height: 75px;
+    align-items: center;
+    font-size: 18px;
+    padding: 0 20px;
+    color: #7a7a7a;
+    justify-content: center;
+    font-family: Ubuntu;
+    border-bottom: 1px solid #7a7a7a;
+}
+
+.game-nav-m .avatar {
+    margin-left: 15px;
+    margin-right: 10px;
+}
+
+.game-nav-m .arrow {
+    transform: rotate(270deg);
+    transition: all .5s ease;
+}
+
+.game-nav-m.message {
+    color: #000000;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+}
+
+.game-nav-m:last-child {
+    border-right: none;
+    flex-grow: 1;
+}
+
+.game-nav-m.nav-hero {
+    cursor: pointer;
+}
+
+.game-nav-m.nav-hero:hover .arrow {
+    transform: rotate(360deg);
+}
+
+.game-nav-m.nav-hero:hover {
+    color: #000000;
+}
+
 @media(max-width: 992px) {
     .game-profile .img {
         padding: 15px 25px;
@@ -121,5 +174,17 @@
 
     .game-sell-wrap {
         padding: 7px 10px;
+    }
+
+    .game-navbar {
+        flex-wrap: wrap;
+    }
+
+    .game-nav-m {
+        width: 50%;
+    }
+
+    .game-nav-m:nth-child(even) {
+        border-right: none;
     }
 }

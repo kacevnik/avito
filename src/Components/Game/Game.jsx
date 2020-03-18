@@ -1,6 +1,10 @@
 import React from 'react';
 import './Game.css';
 import stars from './img/stars.svg'
+import my from './img/my.svg'
+import hart from './img/hart.svg'
+import message from './img/message.svg'
+import arrow from './img/arrow.svg'
 
 function Game({ game }) {
 
@@ -36,7 +40,27 @@ function Game({ game }) {
                     </div>
                 </div>
             </div>
-            <div className="game-column-2"></div>
+            <div className="game-column-2">
+                <div className="game-navbar">
+                    <div className="game-nav-m">
+                        <img src={my} alt="Мои объявления" />
+                        <span>Мои объявления</span>
+                    </div>
+                    <div className="game-nav-m">
+                        <img src={hart} alt="Избранное" />
+                        <span>Избранное</span>
+                    </div>
+                    <div className="game-nav-m message">
+                        <img src={message} alt="Сообщения" />
+                        <span>Сообщения</span>
+                    </div>
+                    <div className="game-nav-m nav-hero">
+                        <span>{name}</span>
+                        <img src={img} alt={name} className="avatar" />
+                        <img src={arrow} alt="Стрелка" className="arrow" />
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
