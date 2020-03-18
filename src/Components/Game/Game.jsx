@@ -1,5 +1,6 @@
 import React from 'react';
 import './Game.css';
+import stars from './img/stars.svg'
 
 function Game({ game }) {
 
@@ -15,6 +16,12 @@ function Game({ game }) {
                     <div className="name">{name}</div>
                     <div className="img">
                         <img src={img} alt={name} />
+                    </div>
+                    <div className="game-stars">
+                        <span>Рейтинг</span>
+                        <span className="stars">
+                            <img src={stars} alt="Рейтинг" />
+                        </span>
                     </div>
                 </div>
             </div>
