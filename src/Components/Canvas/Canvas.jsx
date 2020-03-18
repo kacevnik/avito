@@ -12,6 +12,10 @@ function Canvas({ level }) {
         if (level === 'start') {
             setBp((e.pageX * -1 / 100) + 'px ' + (e.pageY * -1 / 100 - 70) + 'px, left bottom, center bottom, right bottom');
         }
+
+        if(level === 'select') {
+            setBp('left top, right top, left bottom, right bottom');
+        }
     }
 
     const style = {

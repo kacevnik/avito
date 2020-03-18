@@ -10,3 +10,8 @@
     background-repeat: no-repeat;
     background-size: 101%, 27%, 43%, 35%;
 }
+
+.Canvas.select {
+    background-image: url(./img/bg_1.svg), url(./img/bg_2.svg), url(./img/bg_3.svg), url(./img/bg_4.svg);
+    background-repeat: no-repeat;
+}

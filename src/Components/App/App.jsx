@@ -13,9 +13,14 @@ function App() {
     setLevel(levels.filter(el => el !== level))
   }
 
+  const selectHero = (hero) => {
+    console.log(hero)
+    changeLevel()
+  }
+
   return (
     <Context.Provider value={{
-      changeLevel
+      changeLevel, selectHero
     }}>
       <div className="App">
         <Canvas level={level} />

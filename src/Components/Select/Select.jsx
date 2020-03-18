@@ -10,12 +10,7 @@ import ilon_t from './img/ilon_t.svg'
 import kianu_t from './img/kianu_t.svg'
 
 function Select() {
-    const { changeLevel } = useContext(Context);
-
-    const ist = {
-        fontSize: '30px',
-        fontWeight: 'normal'
-    }
+    const { selectHero } = useContext(Context);
 
     return (
         <div className="Select">
@@ -39,7 +34,7 @@ function Select() {
                             Самая молодая звезда, когда-либо получавшая главный “Грэмми” (а также лауреат еще кучи музыкальный премий), герой мемов про пчеловода, “возлюбленная” Владимира Зеленского и самая популярная исполнительница в России в 2019 году. Мы любим Билли за искренность и безумный стиль.
                         </p>
                     </div>
-                    <button>Выбрать</button>
+                    <button onClick={() => selectHero('billy')}>Выбрать</button>
                 </div>
                 <div className="select-item select-item_ilon">
                     <div className="select-citem_wrap">
@@ -53,7 +48,7 @@ function Select() {
                             Гений, миллиардер, плейбой, филантроп. Нам не нужно сочинять: он сам постоянно подкидывает фанатам поводы для мемов. Чего только стоит его роман с певицей Граймс, поездка в ресторан на собственноручно спроектированном Cybertruck и строительство корабля, способного летать на Луну.
                         </p>
                     </div>
-                    <button>Выбрать</button>
+                    <button onClick={() => selectHero('ilon')}>Выбрать</button>
                 </div>
                 <div className="select-item select-item_kianu">
                     <div className="select-citem_wrap">
@@ -67,7 +62,7 @@ function Select() {
                             Главный любимчик соцсетей — Киану Ривз! Не передать словами, как мы ждем четвертую “Матрицу” и “Джона Уика” (а еще Спанч Боба, где он играет говорящую голову) и как счастливы из-за того, что он наконец-то нашел свою любовь. Ну как можно не любить его, когда он такой breathtaking?
                         </p>
                     </div>
-                    <button>Выбрать</button>
+                    <button onClick={() => selectHero('kianu')}>Выбрать</button>
                 </div>
             </div>
         </div>
