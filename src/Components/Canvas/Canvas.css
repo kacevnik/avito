@@ -15,3 +15,10 @@
     background-image: url(./img/bg_1.svg), url(./img/bg_2.svg), url(./img/bg_3.svg), url(./img/bg_4.svg);
     background-repeat: no-repeat;
 }
+
+.Canvas.game {
+    background-color: #E5E5E5;
+    background-image: url(./img/game_bg.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}

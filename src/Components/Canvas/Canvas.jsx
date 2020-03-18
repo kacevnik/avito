@@ -17,6 +17,10 @@ function Canvas({ level, game }) {
         if (level === 'select') {
             setBp('left top, right top, left bottom, right bottom');
         }
+
+        if (level === 'game') {
+            setBp('center bottom');
+        }
     }
 
     const style = {
