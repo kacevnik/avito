@@ -4,10 +4,11 @@ import stars from './img/stars.svg'
 
 function Game({ game }) {
 
-    const { name, img, hero } = game;
-
+    const { name, img, hero, data } = game;
+    const sell = data[0].img
+    const buy = data[1].img
     const cls = ['Game', hero]
-
+    console.log(data)
     return (
         <div className={cls.join(' ')}>
             <div className="game-column-1">
@@ -22,6 +23,16 @@ function Game({ game }) {
                         <span className="stars">
                             <img src={stars} alt="Рейтинг" />
                         </span>
+                    </div>
+                </div>
+                <div className="game-sell">
+                    <div className="game-sell-wrap">
+                        <img src={sell} alt="Хочу продать" />
+                    </div>
+                </div>
+                <div className="game-sell">
+                    <div className="game-sell-wrap">
+                        <img src={buy} alt="Хочу купить" />
                     </div>
                 </div>
             </div>

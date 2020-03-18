@@ -10,6 +10,7 @@
     width: 25%;
     border-right: 1px solid #7A7A7A;
     display: flex;
+    flex-direction: column;
 }
 
 .game-column-2 {
@@ -81,6 +82,34 @@
     }
 }
 
+.game-sell {
+    cursor: pointer;
+    border-top: 1px solid #7a7a7a;
+}
+
+.game-sell-wrap {
+    border: 2px solid transparent;
+    text-align: center;
+    padding: 10px 25px;
+    transition: border 0.3s ease;
+}
+
+.Game.ilon .game-sell-wrap:hover {
+    border: 2px solid #9FC747;
+}
+
+.Game.billy .game-sell-wrap:hover {
+    border: 2px solid #976EEC;
+}
+
+.Game.kianu .game-sell-wrap:hover {
+    border: 2px solid #47A3F0;
+}
+
+.game-sell-wrap img {
+    width: 100%;
+}
+
 @media(max-width: 992px) {
     .game-profile .img {
         padding: 15px 25px;
@@ -88,5 +117,9 @@
 
     .game-stars {
         flex-direction: column;
+    }
+
+    .game-sell-wrap {
+        padding: 7px 10px;
     }
 }
