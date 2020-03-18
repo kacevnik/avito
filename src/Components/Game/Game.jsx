@@ -1,18 +1,20 @@
 import React from 'react';
 import './Game.css';
-import profile_img from '../App/img/ilon.svg'
 
+function Game({ game }) {
 
-function Game() {
+    const { name, img, hero } = game;
+
+    const cls = ['Game', hero]
 
     return (
-        <div className="Game">
+        <div className={cls.join(' ')}>
             <div className="game-column-1">
                 <div className="game-profile">
                     <div className="title">Это ваш профиль,</div>
-                    <div className="name">Илон Маск</div>
+                    <div className="name">{name}</div>
                     <div className="img">
-                        <img src={profile_img} alt="Илон Маск" />
+                        <img src={img} alt={name} />
                     </div>
                 </div>
             </div>

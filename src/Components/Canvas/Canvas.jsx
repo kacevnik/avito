@@ -4,7 +4,7 @@ import Start from '../Start';
 import Select from '../Select';
 import Game from '../Game';
 
-function Canvas({ level }) {
+function Canvas({ level, game }) {
 
     const [bp, setBp] = useState('center -70px, left bottom, center bottom, right bottom')
     let cls = ['Canvas', level];
@@ -28,7 +28,7 @@ function Canvas({ level }) {
             <div className="container">
                 {level === 'start' ? (<Start />) : ('')}
                 {level === 'select' ? (<Select />) : ('')}
-                {level === 'game' ? (<Game />) : ('')}
+                {level === 'game' ? (<Game game={game} />) : ('')}
             </div>
         </ div >
     );
