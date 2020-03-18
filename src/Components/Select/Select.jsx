@@ -2,9 +2,9 @@ import React, { useContext } from 'react';
 import './Select.css';
 import { Context } from '../../context';
 import logo from './img/logo.svg'
-import billy from './img/billy.svg'
-import ilon from './img/ilon.svg'
-import kianu from './img/kianu.svg'
+import billy from '../App/img/billy.svg'
+import ilon from '../App/img/ilon.svg'
+import kianu from '../App/img/kianu.svg'
 import billy_t from './img/billy_t.svg'
 import ilon_t from './img/ilon_t.svg'
 import kianu_t from './img/kianu_t.svg'

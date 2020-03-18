@@ -1,0 +1,41 @@
+.Game {
+    margin: 70px 0 100px 0;
+    background: #FFFFFF;
+    position: relative;
+    display: flex;
+    border: 1px solid #7A7A7A;
+}
+
+.game-column-1 {
+    width: 25%;
+    border-right: 1px solid #7A7A7A;
+    display: flex;
+}
+
+.game-column-2 {
+    width: 75%;
+}
+
+.game-profile {
+    text-align: center;
+    padding: 25px 25px 0 25px;
+}
+
+.game-profile .title {
+    font-size: 18px;
+    font-family: Ubuntu;
+}
+
+.game-profile .name {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Ubuntu;
+}
+
+.game-profile .img {
+    padding: 15px 45px;
+}
+
+.game-profile .img img {
+    width: 100%;
+}

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Canvas.css';
 import Start from '../Start';
 import Select from '../Select';
+import Game from '../Game';
 
 function Canvas({ level }) {
 
@@ -13,7 +14,7 @@ function Canvas({ level }) {
             setBp((e.pageX * -1 / 100) + 'px ' + (e.pageY * -1 / 100 - 70) + 'px, left bottom, center bottom, right bottom');
         }
 
-        if(level === 'select') {
+        if (level === 'select') {
             setBp('left top, right top, left bottom, right bottom');
         }
     }
@@ -27,6 +28,7 @@ function Canvas({ level }) {
             <div className="container">
                 {level === 'start' ? (<Start />) : ('')}
                 {level === 'select' ? (<Select />) : ('')}
+                {level === 'game' ? (<Game />) : ('')}
             </div>
         </ div >
     );
