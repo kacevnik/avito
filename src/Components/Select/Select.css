@@ -13,6 +13,7 @@
 }
 
 .select-header {
+    font-family: Ubuntu;
     border: 1px solid #7A7A7A;
     display: inline-block;
     padding: 20px;
