@@ -5,6 +5,7 @@ import my from './img/my.svg'
 import hart from './img/hart.svg'
 import messages from './img/message.svg'
 import arrow from './img/arrow.svg'
+import empty from './img/empty.svg'
 
 function Game({ game }) {
 
@@ -59,6 +60,16 @@ function Game({ game }) {
                         <span>{name}</span>
                         <img src={img} alt={name} className="avatar" />
                         <img src={arrow} alt="Стрелка" className="arrow" />
+                    </div>
+                </div>
+                <div className="empty-result">
+                    <img src={empty} alt="Начни играть" />
+                    <div className="title">
+                        {name.split(' ')[0]}, у вас нет новых сообщений :(
+                    </div>
+                    <div className="mess">
+                        Продайте или купите что-нибудь<br />
+                        и диалоги не заставят себя долго ждать!
                     </div>
                 </div>
             </div>

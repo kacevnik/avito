@@ -15,6 +15,8 @@
 
 .game-column-2 {
     width: 75%;
+    display: flex;
+    flex-direction: column;
 }
 
 .game-profile {
@@ -170,6 +172,25 @@
     right: -158px;
     transform-origin: 0 center;
     animation: mess 1s ease;
+}
+
+.empty-result {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.empty-result img {
+    margin: 0 0 30px 0;
+}
+
+.empty-result .title {
+    font-size: 26px;
+    font-weight: bold;
+    margin: 0 0 20px 0;
 }
 
 @keyframes mess {
