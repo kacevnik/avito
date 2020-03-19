@@ -7,14 +7,14 @@
 }
 
 .game-column-1 {
-    width: 25%;
+    width: 24%;
     border-right: 1px solid #7A7A7A;
     display: flex;
     flex-direction: column;
 }
 
 .game-column-2 {
-    width: 75%;
+    width: 76%;
     display: flex;
     flex-direction: column;
 }
@@ -187,11 +187,15 @@
     margin: 0 0 20px 0;
 }
 
-.my-sell {
+.my-sell, .my-buy {
     display: none;
 }
 
 .sell .my-sell {
+    display: block;
+}
+
+.buy .my-buy {
     display: block;
 }
 

@@ -7,6 +7,7 @@ import messages from './img/message.svg'
 import arrow from './img/arrow.svg'
 import empty from './img/empty.svg'
 import sell_btn from './img/sell_btn.png'
+import buy_btn from './img/buy_btn.png'
 
 function Game({ game }) {
 
@@ -50,7 +51,7 @@ function Game({ game }) {
                         <img src={my} alt="Мои объявления" />
                         <span>Мои объявления</span>
                     </div>
-                    <div className="game-nav-m">
+                    <div className={'game-nav-m' + (show === 'buy' ? ' active' : '')} onClick={() => setShow('buy')} >
                         <img src={hart} alt="Избранное" />
                         <span>Избранное</span>
                     </div>
@@ -86,6 +87,22 @@ function Game({ game }) {
                         <div className="my-sell-desc-but">
                             <button>
                                 <img src={sell_btn} alt="Продать" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div className="my-buy">
+                    <img src={data[1].img_big} alt={data[1].title} className="my-sell-img" />
+                    <div className="my-sell-desc">
+                        <div className="text">
+                            <div className="title">{data[1].title}</div>
+                            <div className="sub-title">{data[1].subtitle}</div>
+                            <div className="price">{data[1].price}</div>
+                            <div className="city">{data[1].city}</div>
+                        </div>
+                        <div className="my-sell-desc-but">
+                            <button>
+                                <img src={buy_btn} alt="Купить" />
                             </button>
                         </div>
                     </div>

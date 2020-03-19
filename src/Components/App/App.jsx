@@ -18,6 +18,9 @@ import kianu_mess from './img/kianu_mess.svg'
 import billy_sell_big from './img/billy_sell_big.svg'
 import ilon_sell_big from './img/ilon_sell_big.svg'
 import kianu_sell_big from './img/kianu_sell_big.svg'
+import billy_buy_big from './img/billy_buy_big.svg'
+import ilon_buy_big from './img/ilon_buy_big.svg'
+import kianu_buy_big from './img/kianu_buy_big.svg'
 
 function App() {
 
@@ -41,7 +44,15 @@ function App() {
             price: '15 999 ₽',
             city: 'Москва',
           },
-          { state: true, img: billy_buy }
+          {
+            state: true,
+            img: billy_buy,
+            img_big: billy_buy_big,
+            title: 'Топовое худи от Goshan',
+            subtitle: 'Самый popular русский streetwear-бренд. Экслюзив!',
+            price: 'от 300 000 ₽',
+            city: 'Москва',
+          },
         ],
 
       },
@@ -60,7 +71,15 @@ function App() {
             price: '10 000 000 ₽',
             city: 'Москва',
           },
-          { state: true, img: ilon_buy }
+          {
+            state: true,
+            img: ilon_buy,
+            img_big: ilon_buy_big,
+            title: 'Шапка великого Гагарина',
+            subtitle: 'Продаю шапку, которую носил Юрий Гагарин. В отличном состоянии, почти как новая. Цвет желтый, производство советское.',
+            price: '59 500 ₽',
+            city: 'Москва',
+          },
         ],
       },
       {
@@ -78,7 +97,15 @@ function App() {
             price: '15 000 ₽',
             city: 'Москва'
           },
-          { state: true, img: kianu_buy }
+          {
+            state: true,
+            img: kianu_buy,
+            img_big: kianu_buy_big,
+            title: 'Лучшие орхидеи на любой вкус и цвет',
+            subtitle: 'Имеются разные сорта в наличии: простые фаленопсисы и редкие селективные орхидеи! Возможна доставка ростков по всей России! Лучшее качество.',
+            price: 'от 300 до 25 0000 ₽',
+            city: 'Москва',
+          },
         ],
       },
     ]
