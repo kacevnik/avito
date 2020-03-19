@@ -21,6 +21,8 @@ import kianu_sell_big from './img/kianu_sell_big.svg'
 import billy_buy_big from './img/billy_buy_big.svg'
 import ilon_buy_big from './img/ilon_buy_big.svg'
 import kianu_buy_big from './img/kianu_buy_big.svg'
+import billy_seller from './img/billy_seller.svg'
+import billy_seller_2 from './img/billy_seller_2.svg'
 
 function App() {
 
@@ -43,6 +45,20 @@ function App() {
             subtitle: 'Продаю свой дебютный альбом с автографом. Все подробности — в ЛС :))',
             price: '15 999 ₽',
             city: 'Москва',
+            seller: 'Лилия Пупкова',
+            seller_img: billy_seller,
+            seller_text: 'Потенциальный покупатель',
+            seller_status: 'Пора бы уже продать этот альбомчик',
+            chat: [
+              { user: 'he', id: 'billy_1', mes: [{ text: 'Сообщение продовца 1', count: 0 }] },
+              { user: 'my', id: 'billy_2', mes: [{ text: 'Сообщение билли 1', count: 3 }] },
+              { user: 'he', id: 'billy_3', mes: [{ text: 'Сообщение продовца 2', count: 1 }] },
+              { user: 'my', id: 'billy_4', mes: [{ text: 'Сообщение билли 2', count: 2 }, { text: 'Сообщение билли 3', count: 3 }] },
+              { user: 'he', id: 'billy_5', mes: [{ text: 'Сообщение продовца 13', count: 0 }] },
+              { user: 'he', id: 'billy_6', mes: [{ text: 'Сообщение продовца 23', count: 0 }] },
+              { user: 'my', id: 'billy_7', mes: [{ text: 'Сообщение билли 4', count: 1 }] },
+              { user: 'my', id: 'billy_8', mes: [{ text: 'Сообщение билли 4', count: 1 }] },
+            ],
           },
           {
             state: true,
@@ -52,6 +68,16 @@ function App() {
             subtitle: 'Самый popular русский streetwear-бренд. Экслюзив!',
             price: 'от 300 000 ₽',
             city: 'Москва',
+            seller: 'Гоша Рубчивский',
+            seller_img: billy_seller_2,
+            seller_text: 'Продавец топового шмота',
+            seller_status: 'Пора обновить гардероб',
+            chat: [
+              { user: 'he', id: 'billy_buy_1', mes: ['Сообщение продовца 1'] },
+              { user: 'my', id: 'billy_buy_1', mes: ['Сообщение билли 2'] },
+              { user: 'he', id: 'billy_buy_2', mes: ['Сообщение продовца 2'] },
+              { user: 'my', id: 'billy_buy_2', mes: ['Сообщение билли 2', 'Сообщение билли 3'] },
+            ],
           },
         ],
 
