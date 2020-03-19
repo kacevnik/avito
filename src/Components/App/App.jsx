@@ -15,6 +15,9 @@ import kianu_buy from './img/kianu_buy.svg'
 import billy_mess from './img/billy_mess.svg'
 import ilon_mess from './img/ilon_mess.svg'
 import kianu_mess from './img/kianu_mess.svg'
+import billy_sell_big from './img/billy_sell_big.svg'
+import ilon_sell_big from './img/ilon_sell_big.svg'
+import kianu_sell_big from './img/kianu_sell_big.svg'
 
 function App() {
 
@@ -29,9 +32,18 @@ function App() {
         name: 'Билли Айлиш',
         message: billy_mess,
         data: [
-          { state: true, img: billy_sell },
+          {
+            state: true,
+            img: billy_sell,
+            img_big: billy_sell_big,
+            title: 'Альбом Билли Айлиш «When We All Fall Asleep, Where Do We Go?»',
+            subtitle: 'Продаю свой дебютный альбом с автографом. Все подробности — в ЛС :))',
+            price: '15 999 ₽',
+            city: 'Москва',
+          },
           { state: true, img: billy_buy }
         ],
+
       },
       {
         hero: 'ilon',
@@ -39,7 +51,15 @@ function App() {
         name: 'Илон Маск',
         message: ilon_mess,
         data: [
-          { state: true, img: ilon_sell },
+          {
+            state: true,
+            img: ilon_sell,
+            img_big: ilon_sell_big,
+            title: 'Tesla Model S, моя любимая ласточка',
+            subtitle: 'Пробег: 420 км Состояние: как новенькая Цвет: черный',
+            price: '10 000 000 ₽',
+            city: 'Москва',
+          },
           { state: true, img: ilon_buy }
         ],
       },
@@ -49,7 +69,15 @@ function App() {
         name: 'Киану Ривз',
         message: kianu_mess,
         data: [
-          { state: true, img: kianu_sell },
+          {
+            state: true,
+            img: kianu_sell,
+            img_big: kianu_sell_big,
+            title: 'iPhone 8 б/у',
+            subtitle: 'Продаю свой айфон. Пользовался им около года, но решил купить новый. В хорошем состоянии! Только Москва.',
+            price: '15 000 ₽',
+            city: 'Москва'
+          },
           { state: true, img: kianu_buy }
         ],
       },

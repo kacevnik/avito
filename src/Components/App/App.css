@@ -19,6 +19,7 @@
     font-size: 17px;
     line-height: 25px;
     position: relative;
+    user-select: none;
 }
 
 @media screen and (max-width: 767px) {
