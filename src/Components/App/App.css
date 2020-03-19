@@ -18,6 +18,7 @@
     font-family: 'Trebuchet';
     font-size: 17px;
     line-height: 25px;
+    position: relative;
 }
 
 @media screen and (max-width: 767px) {

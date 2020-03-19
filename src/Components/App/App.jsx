@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Context } from '../../context';
 import './App.css';
 import Canvas from '../Canvas';
+import Overlay from '../Overlay';
 import img_ilon from './img/ilon.svg'
 import img_billy from './img/billy.svg'
 import img_kianu from './img/kianu.svg'
@@ -16,6 +17,7 @@ function App() {
 
   const [levels, setLevel] = useState(['start', 'select', 'game', 'final'])
   const [hero, setHero] = useState('ilon')
+  const [overlay, setOverlay] = useState(true)
   const [gameData, setGameData] = useState(
     [
       {
@@ -54,6 +56,7 @@ function App() {
 
   const changeLevel = () => {
     setLevel(levels.filter(el => el !== level))
+    setOverlay(true);
   }
 
   const selectHero = (hero) => {
@@ -63,10 +66,11 @@ function App() {
 
   return (
     <Context.Provider value={{
-      changeLevel, selectHero
+      changeLevel, selectHero, setOverlay
     }}>
       <div className="App">
         <Canvas level={level} game={game[0]} />
+        {overlay ? (<Overlay />) : ('')}
       </div>
     </Context.Provider>
   );

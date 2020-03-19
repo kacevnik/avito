@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Canvas.css';
 import Start from '../Start';
 import Select from '../Select';
@@ -9,18 +9,21 @@ function Canvas({ level, game }) {
     const [bp, setBp] = useState('center -70px, left bottom, center bottom, right bottom')
     let cls = ['Canvas', level];
 
+    useEffect(() => {
+        if (level === 'select' && bp !== 'left top, right top, left bottom, right bottom') {
+            setBp('left top, right top, left bottom, right bottom');
+        }
+
+        if (level === 'game' && bp !== 'center bottom') {
+            setBp('center bottom');
+        }
+    }, [bp, level])
+
     const paralax = (e) => {
         if (level === 'start') {
             setBp((e.pageX * -1 / 100) + 'px ' + (e.pageY * -1 / 100 - 70) + 'px, left bottom, center bottom, right bottom');
         }
 
-        if (level === 'select') {
-            setBp('left top, right top, left bottom, right bottom');
-        }
-
-        if (level === 'game') {
-            setBp('center bottom');
-        }
     }
 
     const style = {
