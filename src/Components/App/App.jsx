@@ -12,6 +12,9 @@ import kianu_sell from './img/kianu_sell.svg'
 import ilon_buy from './img/ilon_buy.svg'
 import billy_buy from './img/billy_buy.svg'
 import kianu_buy from './img/kianu_buy.svg'
+import billy_mess from './img/billy_mess.svg'
+import ilon_mess from './img/ilon_mess.svg'
+import kianu_mess from './img/kianu_mess.svg'
 
 function App() {
 
@@ -24,6 +27,7 @@ function App() {
         hero: 'billy',
         img: img_billy,
         name: 'Билли Айлиш',
+        message: billy_mess,
         data: [
           { state: true, img: billy_sell },
           { state: true, img: billy_buy }
@@ -33,6 +37,7 @@ function App() {
         hero: 'ilon',
         img: img_ilon,
         name: 'Илон Маск',
+        message: ilon_mess,
         data: [
           { state: true, img: ilon_sell },
           { state: true, img: ilon_buy }
@@ -42,6 +47,7 @@ function App() {
         hero: 'kianu',
         img: img_kianu,
         name: 'Киану Ривз',
+        message: kianu_mess,
         data: [
           { state: true, img: kianu_sell },
           { state: true, img: kianu_buy }

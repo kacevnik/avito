@@ -3,12 +3,12 @@ import './Game.css';
 import stars from './img/stars.svg'
 import my from './img/my.svg'
 import hart from './img/hart.svg'
-import message from './img/message.svg'
+import messages from './img/message.svg'
 import arrow from './img/arrow.svg'
 
 function Game({ game }) {
 
-    const { name, img, hero, data } = game;
+    const { name, img, hero, data, message } = game;
     const sell = data[0].img
     const buy = data[1].img
     const cls = ['Game', hero]
@@ -22,6 +22,7 @@ function Game({ game }) {
                     <div className="img">
                         <img src={img} alt={name} />
                     </div>
+                    <img src={message} alt="Привет!!" className="hello-message" />
                     <div className="game-stars">
                         <span>Рейтинг</span>
                         <span className="stars">
@@ -51,7 +52,7 @@ function Game({ game }) {
                         <span>Избранное</span>
                     </div>
                     <div className="game-nav-m message">
-                        <img src={message} alt="Сообщения" />
+                        <img src={messages} alt="Сообщения" />
                         <span>Сообщения</span>
                     </div>
                     <div className="game-nav-m nav-hero">

@@ -19,6 +19,7 @@
 
 .game-profile {
     text-align: center;
+    position: relative;
 }
 
 .game-profile .title {
@@ -161,6 +162,33 @@
 
 .game-nav-m.nav-hero:hover {
     color: #000000;
+}
+
+.hello-message {
+    position: absolute;
+    top: 25%;
+    right: -158px;
+    transform-origin: 0 center;
+    animation: mess 1s ease;
+}
+
+@keyframes mess {
+    0%{
+        opacity: 0;
+        transform: rotate(70deg);
+    }
+    50%{
+        opacity: 0;
+        transform: rotate(70deg);
+    }
+    90% {
+        opacity: 1;
+        transform: rotate(-10deg);
+    }
+    100%{
+        opacity: 1;
+        transform: rotate(0deg);
+    }
 }
 
 @media(max-width: 992px) {
