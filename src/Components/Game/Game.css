@@ -1,5 +1,5 @@
 .Game {
-    margin: 70px 0 100px 0;
+    margin: 5em 0 7em 0;
     background: #FFFFFF;
     position: relative;
     display: flex;
@@ -25,20 +25,26 @@
 }
 
 .game-profile .title {
-    font-size: 18px;
     font-family: Ubuntu;
-    padding: 25px 25px 0 25px;
+    padding: 2.5em 2.5em 0 2.5em;
+}
+
+.game-profile .title span{
+    font-size: 1.8em;
 }
 
 .game-profile .name {
-    font-size: 20px;
     font-weight: bold;
     font-family: Ubuntu;
-    padding: 0 25px;
+    padding: 0 2.5em;
+}
+
+.game-profile .name span {
+    font-size: 2em;
 }
 
 .game-profile .img {
-    padding: 15px 70px;
+    padding: 1.5em 7em;
 }
 
 .game-profile .img img {
@@ -47,13 +53,14 @@
 
 .game-stars {
     display: flex;
-    padding: 11px 25px 2px;
+    padding: 1.1em 2.5em 0.2em;
     justify-content: center;
     border-top: 1px solid #7a7a7a;
 }
 
 .game-stars span:first-child {
-    margin-right: 10px;
+    margin-right: 0.7em;
+    font-size: 1.7em;
 }
 
 .stars {
@@ -90,10 +97,10 @@
 }
 
 .game-sell-wrap {
-    border: 2px solid transparent;
     text-align: center;
-    padding: 10px 25px;
+    padding: 1em 2.5em;
     position: relative;
+    cursor: pointer;
 }
 
 .game-sell-wrap img {
@@ -109,6 +116,16 @@
     background: url(./img/sell_complite.svg)no-repeat center center;
 }
 
+.my-sell-img-wrap {
+    position: relative;
+    overflow: hidden;
+}
+
+.my-sell-img-wrap .sell_complite {
+    background-size: 25%;
+    transform: rotate(26deg);
+}
+
 .game-navbar {
     display: flex;
 }
@@ -117,14 +134,21 @@
     cursor: pointer;
     display: flex;
     border-right: 1px solid #7a7a7a;
-    min-height: 75px;
+    min-height: 7.5em;
     align-items: center;
-    font-size: 18px;
-    padding: 0 20px;
+    padding: 0 2em;
     color: #7a7a7a;
     justify-content: center;
     font-family: Ubuntu;
     border-bottom: 1px solid #7a7a7a;
+}
+
+.game-nav-m img {
+    width: 4.2em;
+}
+
+.game-nav-m span {
+    font-size: 1.8em;
 }
 
 .game-nav-m.active.deseble, .game-nav-m.nav-hero.deseble {
@@ -147,13 +171,14 @@
 }
 
 .game-nav-m .avatar {
-    margin-left: 15px;
-    margin-right: 10px;
+    margin-left: 1.5em;
+    margin-right: 1em;
 }
 
-.game-nav-m .arrow {
+.game-nav-m img.arrow {
     transform: rotate(270deg);
     transition: all .5s ease;
+    width: 2.9em;
 }
 
 .game-nav-m.active {
@@ -161,9 +186,9 @@
     font-weight: bold;
 }
 
-.avatar {
-    width: 50px;
-    height: 50px;
+.game-nav-m img.avatar {
+    width: 5em;
+    height: 5em;
 }
 
 .game-nav-m:last-child {
@@ -193,18 +218,21 @@
     flex-direction: column;
     text-align: center;
     justify-content: center;
-    padding: 25px;
+    padding: 2.5em;
     display: none;
 }
 
 .empty-result img {
-    margin: 0 0 30px 0;
+    margin: 0 0 3em 0;
 }
 
 .empty-result .title {
-    font-size: 26px;
     font-weight: bold;
-    margin: 0 0 20px 0;
+    margin: 0 0 2em 0;
+}
+
+.empty-result .title span {
+    font-size: 2.6em;
 }
 
 .my-sell, .my-buy {
@@ -227,39 +255,55 @@
     display: flex;
     border-top: 1px solid #7a7a7a;
     flex-wrap: wrap;
-    margin-top: -7px;
+    margin-top: -0.7em;
 }
 
-.my-sell-desc .text {
+.my-sell-desc .atext {
     width: 60%;
-    padding: 25px;
+    padding: 2.5em;
 }
 
 .my-sell-desc .title {
     color: #568FFF;
-    font-size: 22px;
+    font-size: 2.2em;
+    line-height: 1.3;
 }
 
 .my-sell-desc .sub-title {
-    font-size: 18px;
-    margin-bottom: 20px;
+    margin-bottom: 2em;
+}
+
+.my-sell-desc .sub-title span {
+    font-size: 1.8em;
 }
 
 .my-sell-desc .price {
     font-weight: bold;
+    font-size: 1.7em;
 }
 
 .my-sell-desc .city {
     color: #7a7a7a;
+    font-size: 1.7em;
 }
 
 .my-sell-desc-but {
     width: 40%;
     text-align: right;
-    padding: 25px 25px 0 0;
+    padding: 2.5em 2.5em 0 0;
 }
 
-.my-sell-desc-but button:hover {
+.my-sell-desc-but span {
+    width: 19.9em;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.my-sell-desc-but span img {
+    width: 100%;
+}
+
+.my-sell-desc-but span:hover {
     opacity: .8;
 }
 
@@ -287,7 +331,7 @@
 }
 
 .seller {
-    min-height: 75px;
+    min-height: 7.5em;
     border-bottom: 1px solid #7a7a7a;
     display: flex;
     font-family: Ubuntu;
@@ -297,11 +341,16 @@
     flex-grow: 1;
     display: flex;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 2em;
 }
 
 .seller-profile img {
-    margin-right: 15px;
+    margin-right: 1.5em;
+    width: 5.4em;
+}
+
+.seller-profile-text, .seller_status span, .empty-result .mess, .chat-message-mes span, .chat-on-mess span {
+    font-size: 1.7em;
 }
 
 .seller-name {
@@ -321,11 +370,11 @@
 }
 
 .chat-on {
-    min-height: 75px;
+    min-height: 7.5em;
     border-top: 1px solid #7a7a7a;
     background: #eeeeee;
     color: #ffffff;
-    padding: 10px 0 10px 25px;
+    padding: 1em 0 1em 2.5em;
     text-align: center;
     display: flex;
 }
@@ -335,9 +384,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 54px;
+    height: 5.4em;
     flex-grow: 1;
-    margin-right: 25px;
+    margin-right: 2.5em;
     cursor: pointer;
     font-family: Ubuntu;
 }
@@ -364,7 +413,7 @@
 .seller_status {
     display: flex;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 2em;
     border-left: 1px solid #7A7A7A;
 }
 
@@ -373,15 +422,15 @@
 }
 
 .chat-messages img {
-    width: 54px;
+    width: 5.4em;
 }
 
 .chat-messages.he, .chat-messages.my, .chat-messages.avito {
     display: flex;
     justify-content: flex-end;
-    padding: 0 25px;
+    padding: 0 2.5em;
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 1.5em;
     align-items: flex-start;
 }
 
@@ -395,10 +444,10 @@
 
 .chat-messages.he .chat-message-mes, .chat-messages.my .chat-message-mes {
     font-family: Ubuntu;
-    padding: 5px 25px;
-    margin: 0 20px;
-    border-radius: 3px;
-    min-height: 54px;
+    padding: 0.5em 2.5em;
+    margin: 0 2em;
+    border-radius: 0.3em;
+    min-height: 5.4em;
     display: flex;
     align-items: center;
     position: relative;
@@ -416,11 +465,10 @@
 .chat-messages.avito .chat-message-mes {
         background: #F8F8F8;
         border: 1px solid #7a7a7a;
-        padding: 52px 25px;
-        margin: 0 20px;
-        min-height: 54px;
+        padding: 5.2em 2.5em;
+        margin: 0 2em;
+        min-height: 5.4em;
         display: flex;
-        font-size: 30px;
         font-weight: bold;
         align-items: center;
         position: relative;
@@ -428,29 +476,33 @@
         justify-content: center;
 }
 
+.chat-messages.avito .chat-message-mes span {
+    font-size: 3em;
+}
+
 .chat-messages.he .chat-message-mes:before {
     content: '';
     position: absolute;
-    border: 20px solid transparent;
-    border-top: 20px solid #F8F8F8;
-    border-right: 20px solid #F8F8F8;
-    left: -20px;
+    border: 15px solid transparent;
+    border-top: 15px solid #F8F8F8;
+    border-right: 15px solid #F8F8F8;
+    left: -15px;
     top: 0;
 }
 
 .chat-messages.my .chat-message-mes:before {
     content: '';
     position: absolute;
-    border: 20px solid transparent;
-    border-left: 20px solid #CFDFFF;
-    border-top: 20px solid #CFDFFF;
-    right: -20px;
+    border: 15px solid transparent;
+    border-left: 15px solid #CFDFFF;
+    border-top: 15px solid #CFDFFF;
+    right: -15px;
     top: 0;
 }
 
 .chat-messages.avito_end {
     display: flex;
-    padding: 0 25px;
+    padding: 0 2.5em;
     width: 100%;
     margin-bottom: 15px;
     flex-direction: row-reverse;
@@ -460,9 +512,9 @@
 .chat-messages.avito_end .chat-message-mes{
     background: #F8F8F8;
     border: 1px solid #7a7a7a;
-    padding: 25px 76px;
-    margin: 0 20px;
-    min-height: 54px;
+    padding: 2.5em 10em;
+    margin: 0 2em;
+    min-height: 5.4em;
     display: flex;
     align-items: center;
     position: relative;
@@ -489,15 +541,17 @@
 .hello-message {
     position: absolute;
     top: 25%;
-    right: -158px;
+    right: -57%;
     transform-origin: 0 center;
     animation: mess 8s ease;
     opacity: 0;
+    width: 84%;
+    z-index: 10;
 }
 
 .userTap {
     text-align: center;
-    font-size: 14px;
+    font-size: 1.4em;
     font-style: italic;
     color: #b2b2b2;
     display: none;
@@ -625,42 +679,5 @@
     }
     0%, 40%, 100% {
         transform: translate(0, 0) rotate(0);
-    }
-    
-}
-
-@media(max-width: 992px) {
-    .game-profile .img {
-        padding: 15px 25px;
-    }
-
-    .game-stars {
-        flex-direction: column;
-    }
-
-    .game-sell-wrap {
-        padding: 7px 10px;
-    }
-
-    .game-navbar {
-        flex-wrap: wrap;
-    }
-
-    .game-nav-m {
-        width: 50%;
-    }
-
-    .game-nav-m:nth-child(even) {
-        border-right: none;
-    }
-
-    .my-sell-desc .text {
-        width: 100%;
-    }
-
-    .my-sell-desc-but {
-        width: 100%;
-        text-align: left;
-        padding: 0 25px 25px;
-    }
+    }    
 }

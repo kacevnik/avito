@@ -29,6 +29,7 @@ function App() {
 
   const [levels, setLevel] = useState(['start', 'select', 'game', 'final'])
   const [hero, setHero] = useState('ilon')
+  const [rem, setRem] = useState(window.innerWidth / 192)
   const [overlay, setOverlay] = useState(true)
   const [gameData, setGameData] = useState(
     [
@@ -177,11 +178,21 @@ function App() {
     }))
   }
 
+  window.addEventListener("resize", () => {
+    setRem(window.innerWidth / 192)
+  })
+
+  console.log(window.innerWidth)
+
+  const st = {
+    fontSize: rem + 'px'
+  }
+
   return (
     <Context.Provider value={{
       changeLevel, selectHero, setOverlay, onFinalSellBuy
     }}>
-      <div className="App">
+      <div className="App" style={st}>
         <Canvas level={level} game={game[0]} />
         {overlay ? (<Overlay />) : ('')}
       </div>

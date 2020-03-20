@@ -8,7 +8,7 @@ function Start() {
     const { changeLevel } = useContext(Context);
 
     const ist = {
-        fontSize: '30px',
+        fontSize: '1.25em',
         fontWeight: 'normal'
     }
 

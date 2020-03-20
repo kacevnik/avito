@@ -32,7 +32,7 @@ function Canvas({ level, game }) {
 
     return (
         <div className={cls.join(' ')} style={style} onMouseMove={(e) => paralax(e)}>
-            <div className="container">
+            <div className="container_avito">
                 {level === 'start' ? (<Start />) : ('')}
                 {level === 'select' ? (<Select />) : ('')}
                 {level === 'game' ? (<Game game={game} />) : ('')}

@@ -96,7 +96,7 @@ function Game({ game }) {
                 cls.push(lastMess)
             }
         }
-        return (<div key={el.id} className={cls.join(' ')}><div className="chat-message-mes" dangerouslySetInnerHTML={el.mes[0].text}></div><img src={elimg} alt={sdelka.seller} /></div>)
+        return (<div key={el.id} className={cls.join(' ')}><div className="chat-message-mes"><span dangerouslySetInnerHTML={el.mes[0].text}></span></div><img src={elimg} alt={sdelka.seller} /></div>)
     })
 
     const moreChatMes = chatMess.mes.map((el) => {
@@ -107,7 +107,7 @@ function Game({ game }) {
         if (chatMess.user === 'final_end') {
             cls.push('final_end')
         }
-        return (<div key={el.text.__html} className={cls.join(' ')} onClick={() => onChatMove(el.text.__html, el.count)} dangerouslySetInnerHTML={el.text}></div>)
+        return (<div key={el.text.__html} className={cls.join(' ')} onClick={() => onChatMove(el.text.__html, el.count)}><span dangerouslySetInnerHTML={el.text}></span></div>)
     })
 
     const onChatMove = (el, count) => {
@@ -142,8 +142,8 @@ function Game({ game }) {
         <div className={cls.join(' ')}>
             <div className="game-column-1">
                 <div className="game-profile">
-                    <div className="title">Это ваш профиль,</div>
-                    <div className="name">{name}</div>
+                    <div className="title"><span>Это ваш профиль,</span></div>
+                    <div className="name"><span>{name}</span></div>
                     <div className="img">
                         <img src={img} alt={name} />
                     </div>
@@ -158,7 +158,7 @@ function Game({ game }) {
                 <div className="game-sell">
                     <div className="game-sell-wrap">
                         <img src={sell} alt="Хочу продать" />
-                        {data[0].state ? <div class="sell_complite"></div> : ''}
+                        {!data[0].state ? <div class="sell_complite"></div> : ''}
                     </div>
                 </div>
                 <div className="game-sell">
@@ -191,7 +191,7 @@ function Game({ game }) {
                 <div className="empty-result">
                     <img src={empty} alt="Начни играть" />
                     <div className="title">
-                        {name.split(' ')[0]}, у вас нет новых сообщений :(
+                        <span>{name.split(' ')[0]}, у вас нет новых сообщений :(</span>
                     </div>
                     <div className="mess">
                         Продайте или купите что-нибудь<br />
@@ -199,34 +199,37 @@ function Game({ game }) {
                     </div>
                 </div>
                 <div className="my-sell">
-                    <img src={data[0].img_big} alt={data[0].title} className="my-sell-img" />
+                    <div className="my-sell-img-wrap">
+                        <img src={data[0].img_big} alt={data[0].title} className="my-sell-img" />
+                        {!data[0].state ? <div class="sell_complite"></div> : ''}
+                    </div>
                     <div className="my-sell-desc">
-                        <div className="text">
+                        <div className="atext">
                             <div className="title">{data[0].title}</div>
-                            <div className="sub-title">{data[0].subtitle}</div>
+                            <div className="sub-title"><span>{data[0].subtitle}</span></div>
                             <div className="price">{data[0].price}</div>
                             <div className="city">{data[0].city}</div>
                         </div>
                         <div className="my-sell-desc-but">
-                            <button>
+                            {data[0].state ? <span>
                                 <img src={sell_btn} alt="Продать" onClick={() => onSetsellOrBuy('sell')} />
-                            </button>
+                            </span> : ''}
                         </div>
                     </div>
                 </div>
                 <div className="my-buy">
                     <img src={data[1].img_big} alt={data[1].title} className="my-sell-img" />
                     <div className="my-sell-desc">
-                        <div className="text">
+                        <div className="atext">
                             <div className="title">{data[1].title}</div>
-                            <div className="sub-title">{data[1].subtitle}</div>
+                            <div className="sub-title"><span>{data[1].subtitle}</span></div>
                             <div className="price">{data[1].price}</div>
                             <div className="city">{data[1].city}</div>
                         </div>
                         <div className="my-sell-desc-but">
-                            <button>
+                            <span>
                                 <img src={buy_btn} alt="Купить" onClick={() => onSetsellOrBuy('buy')} />
-                            </button>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -240,7 +243,7 @@ function Game({ game }) {
                             </div>
                         </div>
                         <div className="seller_status">
-                            {sdelka.seller_status}
+                            <span>{sdelka.seller_status}</span>
                         </div>
                     </div>
                     <div className="chat-body">

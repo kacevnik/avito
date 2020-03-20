@@ -16,8 +16,7 @@
 
 .App {
     font-family: 'Trebuchet';
-    font-size: 17px;
-    line-height: 25px;
+    line-height: 2.5em;
     position: relative;
     user-select: none;
 }

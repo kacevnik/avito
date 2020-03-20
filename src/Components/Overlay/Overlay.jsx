@@ -13,7 +13,7 @@ function Overlay() {
             setTimeout(() => {
                 setCls([...cls, 'hide'])
                 setOverlay(false)
-            }, 1000)
+            }, 1500)
         }
     })
 

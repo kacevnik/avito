@@ -5,7 +5,7 @@
 }
 
 .Canvas.start {
-    padding-bottom: 250px;
+    padding-bottom: 21.5em;
     background-image: url(./img/bg.png), url(./img/kuanu.png), url(./img/billy.png), url(./img/ilon.png);
     background-repeat: no-repeat;
     background-size: 101%, 27%, 43%, 35%;
@@ -20,5 +20,11 @@
     background-color: #E5E5E5;
     background-image: url(./img/game_bg.png);
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
+}
+
+.container_avito {
+    width: 120em;
+    margin: 0 auto;
+    padding: 0 2em;
 }

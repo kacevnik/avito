@@ -1,19 +1,19 @@
 .Start {
-    margin: 70px 0 70px 0;
+    margin: 5em 0 7em 0;
     background: transparent;
     position: relative;
 }
 
 .Start button {
     position: absolute;
-    background-image: url(./img/btn.svg);
+    background-image: url(/static/media/btn.57803ea5.svg);
     background-repeat: no-repeat;
     background-position: top center;
     color: transparent;
-    width: 312px;
-    height: 114px;
+    width: 34%;
+    height: 23%;
     background-size: contain;
-    bottom: -60px;
+    bottom: -12%;
     transition: all 0.3s ease;
 }
 
@@ -24,13 +24,18 @@
 .start-logo {
     border: 1px solid #7A7A7A;
     display: inline-block;
-    padding: 13px 0 0 0;
+    padding: 1.3em 0 0 0;
     background: #ffffff;
     border-bottom: none;
+    width: 23.4em;
+}
+
+.start-logo img {
+    width: 100%;
 }
 
 .start-header {
-    padding: 25px 55px;
+    padding: 2.5em 5.5em;
     background: #ffffff;
     border: 1px solid #7A7A7A;
     text-align: center;
@@ -43,26 +48,26 @@
 
 .start-header .sub-title {
     font-family: Ubuntu;
-    font-size: 36px;
+    font-size: 3.6em;
 }
 
 .start-content {
-    padding: 35px 55px 75px 55px;
+    padding: 2.5em 3.5em 6.5em 3.5em;
     background: #ffffff;
     border: 1px solid #7A7A7A;
 }
 
 .start-content span {
-    font-size: 22px;
-    line-height: 40px;
-    margin-bottom: 15px;
+    font-size: 1.9em;
+    line-height: 2em;
+    margin-bottom: 1.5em;
     font-weight: 400;
     display: inline-block;
 }
 
 .start-content p {
-    font-size: 28px;
+    font-size: 2.6em;
     color: #47A3F0;
     font-weight: bold;
-    line-height: 40px;
+    line-height: 1.5em;
 }
