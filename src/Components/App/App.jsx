@@ -3,7 +3,6 @@ import { Context } from '../../context';
 import './App.css';
 import Canvas from '../Canvas';
 import Overlay from '../Overlay';
-import avito_img from './img/avito_img.svg'
 import img_ilon from './img/ilon.svg'
 import img_billy from './img/billy.svg'
 import img_kianu from './img/kianu.svg'
@@ -35,7 +34,6 @@ function App() {
     [
       {
         hero: 'billy',
-        avito_img: avito_img,
         img: img_billy,
         name: 'Билли Айлиш',
         message: billy_mess,

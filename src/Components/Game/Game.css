@@ -561,6 +561,10 @@
     display: block;
 }
 
+.avito-hide-img {
+    display: none;
+}
+
 @keyframes mess {
     0%{
         opacity: 0;

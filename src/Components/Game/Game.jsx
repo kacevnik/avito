@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Context } from '../../context';
 import './Game.css';
+import avito_img from './img/avito_img.svg'
 import stars from './img/stars.svg'
 import my from './img/my.svg'
 import hart from './img/hart.svg'
@@ -15,7 +16,7 @@ function Game({ game }) {
 
     const { onFinalSellBuy } = useContext(Context);
 
-    const { name, img, hero, data, message, avito_img } = game;
+    const { name, img, hero, data, message } = game;
     const [show, setShow] = useState('mess_empty');
     const [userTap, setUserTap] = useState(['userTap']);
     const [lastMess, setLastMess] = useState('hide');
@@ -140,6 +141,7 @@ function Game({ game }) {
 
     return (
         <div className={cls.join(' ')}>
+            <img src={avito_img} alt="Avito" className="avito-hide-img" />
             <div className="game-column-1">
                 <div className="game-profile">
                     <div className="title"><span>Это ваш профиль,</span></div>
