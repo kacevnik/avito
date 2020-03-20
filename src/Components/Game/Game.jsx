@@ -19,6 +19,7 @@ function Game({ game }) {
     const { name, img, hero, data, message } = game;
     const [show, setShow] = useState('mess_empty');
     const [userTap, setUserTap] = useState(['userTap']);
+    const [mesAnime, setMesAnime] = useState(['chat-on']);
     const [lastMess, setLastMess] = useState('hide');
     const [startChat, setStartChat] = useState(false);
     const [hideMes, setHideMes] = useState(false);
@@ -108,6 +109,7 @@ function Game({ game }) {
         if (chatMess.user === 'final_end') {
             cls.push('final_end')
         }
+
         return (<div key={el.text.__html} className={cls.join(' ')} onClick={() => onChatMove(el.text.__html, el.count)}><span dangerouslySetInnerHTML={el.text}></span></div>)
     })
 
@@ -120,6 +122,8 @@ function Game({ game }) {
         if (userMess[0].user !== 'avito' && userMess[0].user !== 'avito_end') {
             setUserTap([...userTap, 'show'])
         }
+
+        setMesAnime(['chat-on'])
 
         if (userMess[0].user !== 'avito_end') {
             setStartChat(true)
@@ -138,6 +142,20 @@ function Game({ game }) {
             }, 1500)
         }
     }, [userTap])
+
+    useEffect(() => {
+        let sec = 1500
+
+        if (chatMessData[chatMessData.length - 1].user === 'avito' || chatMessData[chatMessData.length - 1].user === 'avito_end') {
+            sec = 100
+        }
+        if (mesAnime.length === 1) {
+            setMesAnime([...mesAnime, 'hide'])
+            setTimeout(() => {
+                setMesAnime([...mesAnime, 'show'])
+            }, sec)
+        }
+    }, [mesAnime])
 
     return (
         <div className={cls.join(' ')}>
@@ -252,7 +270,7 @@ function Game({ game }) {
                         {chatMessages}
                         <div className={userTap.join(' ')}>{sdelka.seller + ' печатает...'}</div>
                     </div>
-                    <div className="chat-on">
+                    <div className={mesAnime.join(' ')}>
                         {moreChatMes}
                     </div>
                 </div>

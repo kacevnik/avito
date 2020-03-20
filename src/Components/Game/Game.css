@@ -377,18 +377,32 @@
     padding: 1em 0 1em 2.5em;
     text-align: center;
     display: flex;
+    overflow: hidden;
+}
+
+.chat-on.hide .chat-on-mess {
+    opacity: 0;
+    left: -300%
 }
 
 .chat-on-mess {
+    position: relative;
     background: #47A3F0;
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: center;
     height: 5.4em;
     flex-grow: 1;
     margin-right: 2.5em;
     cursor: pointer;
     font-family: Ubuntu;
+    opacity: 1;
+}
+
+.chat-on.show .chat-on-mess {
+    opacity: 1;
+    transition: opacity 2s ease;
+    left: 0;
 }
 
 .chat-on-mess.final:first-child {
