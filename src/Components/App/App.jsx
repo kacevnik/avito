@@ -3,6 +3,7 @@ import { Context } from '../../context';
 import './App.css';
 import Canvas from '../Canvas';
 import Overlay from '../Overlay';
+import avito_img from './img/avito_img.svg'
 import img_ilon from './img/ilon.svg'
 import img_billy from './img/billy.svg'
 import img_kianu from './img/kianu.svg'
@@ -33,11 +34,13 @@ function App() {
     [
       {
         hero: 'billy',
+        avito_img: avito_img,
         img: img_billy,
         name: 'Билли Айлиш',
         message: billy_mess,
         data: [
           {
+            name: 'billy_sell',
             state: true,
             img: billy_sell,
             img_big: billy_sell_big,
@@ -50,17 +53,28 @@ function App() {
             seller_text: 'Потенциальный покупатель',
             seller_status: 'Пора бы уже продать этот альбомчик',
             chat: [
-              { user: 'he', id: 'billy_1', mes: [{ text: 'Сообщение продовца 1', count: 0 }] },
-              { user: 'my', id: 'billy_2', mes: [{ text: 'Сообщение билли 1', count: 3 }] },
-              { user: 'he', id: 'billy_3', mes: [{ text: 'Сообщение продовца 2', count: 1 }] },
-              { user: 'my', id: 'billy_4', mes: [{ text: 'Сообщение билли 2', count: 2 }, { text: 'Сообщение билли 3', count: 3 }] },
-              { user: 'he', id: 'billy_5', mes: [{ text: 'Сообщение продовца 13', count: 0 }] },
-              { user: 'he', id: 'billy_6', mes: [{ text: 'Сообщение продовца 23', count: 0 }] },
-              { user: 'my', id: 'billy_7', mes: [{ text: 'Сообщение билли 4', count: 1 }] },
-              { user: 'my', id: 'billy_8', mes: [{ text: 'Сообщение билли 4', count: 1 }] },
+              { user: 'he', id: 'billy_1', mes: [{ text: { __html: 'ААА! Еще продаете??? Хочу купить ваш альбом с автографом!' }, count: 0 }] },
+              { user: 'my', id: 'billy_2', mes: [{ text: { __html: 'Привет! Да, еще продаю.' }, count: 3 }] },
+              { user: 'he', id: 'billy_3', mes: [{ text: { __html: 'Я куплю альбом у самой Билли Айлиш! Он новый или упаковка вскрыта?' }, count: 1 }] },
+              { user: 'my', id: 'billy_4', mes: [{ text: { __html: 'Абсолютно новый' }, count: 2 }, { text: { __html: 'Вскрывала, чтобы расписаться на нем' }, count: 2 }] },
+              { user: 'he', id: 'billy_5', mes: [{ text: { __html: 'Ладно, это не имеет значения) Только есть одна проблема: я сейчас не в России, поэтому я бы хотела перевести вам денег и забронировать альбом, чтобы никто не купил его до моего возвращения.' }, count: 0 }] },
+              { user: 'my', id: 'billy_6', mes: [{ text: { __html: 'Мне это не очень удобно' }, count: 2 }, { text: { __html: 'Может быть, попросите забрать кого-то из знакомых?' }, count: 4 }] },
+              { user: 'he', id: 'billy_7', mes: [{ text: { __html: 'Очень вас прошу! Это станет лучшим подарком!' }, count: 0 }] },
+              { user: 'my', id: 'billy_8', mes: [{ text: { __html: 'Окей. Что требуется от меня?' }, count: 4 }] },
+              { user: 'he', id: 'billy_9', mes: [{ text: { __html: 'Не очень хочется напрягать людей... Может, все-таки перевод?' }, count: 0 }] },
+              { user: 'my', id: 'billy_10', mes: [{ text: { __html: 'Окей. Что требуется от меня?' }, count: 2 }] },
+              { user: 'he', id: 'billy_11', mes: [{ text: { __html: 'Чтобы я мог перевести деньги, пришлите мне номер своей карты, дату и номер выдачи, а также код, расположенный с обратной стороны карты' }, count: 0 }] },
+              { user: 'my', id: 'billy_12', mes: [{ text: { __html: 'Хорошо, секунду' }, count: 2 }, { text: { __html: 'А зачем вам столько информации?' }, count: 2 }] },
+              { user: 'avito', id: 'billy_13', mes: [{ text: { __html: 'Этому покупателю можно доверять?' }, count: 2 }] },
+              { user: 'final', id: 'billy_14', mes: [{ text: { __html: 'Да, можно' }, count: 2 }, { text: { __html: 'Нет, что-то тут нечисто' }, count: 4 }] },
+              { user: 'avito_end', id: 'billy_15', mes: [{ text: { __html: '<div class="final-mess-no">Ты не прав!</div>Аккуратнее! Этот покупатель пытается выяснить у Билли личные данные — номер и код банковской карты. Разглашение такой информации ставит под угрозу финансовую и личную безопасность! Avito рекомендует держать свои личные данные при себе.' }, count: 2 }] },
+              { user: 'final_end', id: 'billy_16', mes: [{ text: { __html: 'Провернуть еще одну сделку' }, count: 2 }] },
+              { user: 'avito_end', id: 'billy_17', mes: [{ text: { __html: '<div class="final-mess-yes">Ты прав!</div>АЙ правда! Этот покупатель пытается выяснить у Билли личные данные — номер и код банковской карты. Разглашение такой информации ставит под угрозу финансовую и личную безопасность! Avito рекомендует держать свои личные данные при себе.' }, count: 2 }] },
+              { user: 'final_end', id: 'billy_18', mes: [{ text: { __html: 'Провернуть еще одну сделку' }, count: 2 }] },
             ],
           },
           {
+            name: 'billy_buy',
             state: true,
             img: billy_buy,
             img_big: billy_buy_big,
@@ -151,9 +165,21 @@ function App() {
     changeLevel()
   }
 
+  const onFinalSellBuy = (sdelka) => {
+    setGameData(gameData.map(el => {
+      el.data.map(a => {
+        if (a.name === sdelka) {
+          a.state = false
+        }
+        return a
+      })
+      return el
+    }))
+  }
+
   return (
     <Context.Provider value={{
-      changeLevel, selectHero, setOverlay
+      changeLevel, selectHero, setOverlay, onFinalSellBuy
     }}>
       <div className="App">
         <Canvas level={level} game={game[0]} />

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { Context } from '../../context';
 import './Game.css';
 import stars from './img/stars.svg'
 import my from './img/my.svg'
@@ -12,7 +13,9 @@ import buy_btn from './img/buy_btn.png'
 
 function Game({ game }) {
 
-    const { name, img, hero, data, message } = game;
+    const { onFinalSellBuy } = useContext(Context);
+
+    const { name, img, hero, data, message, avito_img } = game;
     const [show, setShow] = useState('mess_empty');
     const [userTap, setUserTap] = useState(['userTap']);
     const [lastMess, setLastMess] = useState('hide');
@@ -81,6 +84,9 @@ function Game({ game }) {
         if (el.user === 'my') {
             elimg = img
         }
+        if (el.user === 'avito' || el.user === 'avito_end') {
+            elimg = avito_img
+        }
         if (idx === chatMessData.length - 1 && chatMessData.length > 1) {
             if (lastMess === 'hide') {
                 setTimeout(() => {
@@ -90,22 +96,38 @@ function Game({ game }) {
                 cls.push(lastMess)
             }
         }
-        return (<div key={el.id} className={cls.join(' ')}><div className="chat-message-mes">{el.mes[0].text}</div><img src={elimg} alt={sdelka.seller} /></div>)
+        return (<div key={el.id} className={cls.join(' ')}><div className="chat-message-mes" dangerouslySetInnerHTML={el.mes[0].text}></div><img src={elimg} alt={sdelka.seller} /></div>)
     })
 
     const moreChatMes = chatMess.mes.map((el) => {
-        return (<div key={el.text} className="chat-on-mess" onClick={() => onChatMove(el.text, el.count)}>{el.text}</div>)
+        let cls = ['chat-on-mess']
+        if (chatMess.user === 'final') {
+            cls.push('final')
+        }
+        if (chatMess.user === 'final_end') {
+            cls.push('final_end')
+        }
+        return (<div key={el.text.__html} className={cls.join(' ')} onClick={() => onChatMove(el.text.__html, el.count)} dangerouslySetInnerHTML={el.text}></div>)
     })
 
     const onChatMove = (el, count) => {
         setCountMess(countMess + count)
-        let filterSdelka = { user: 'my', id: new Date().toString(), mes: [{ text: el, count: count }] }
+        let filterSdelka = { user: 'my', id: new Date().toString(), mes: [{ text: { __html: el }, count: count }] }
         let userMess = sdelka.chat.filter(b => b.id === hero + '_' + (countMess + count))
         setChatMessSata([...chatMessData, filterSdelka, userMess[0]])
         setChatMess(sdelka.chat.filter(s => s.id === hero + '_' + (countMess + count + 1))[0])
-        setUserTap([...userTap, 'show'])
+        if (userMess[0].user !== 'avito' && userMess[0].user !== 'avito_end') {
+            setUserTap([...userTap, 'show'])
+        }
+
+        if (userMess[0].user !== 'avito_end') {
+            setStartChat(true)
+        } else {
+            setStartChat(false)
+            onFinalSellBuy(sdelka.name)
+        }
         setLastMess('hide')
-        setStartChat(true)
+
     }
 
     useEffect(() => {
@@ -136,6 +158,7 @@ function Game({ game }) {
                 <div className="game-sell">
                     <div className="game-sell-wrap">
                         <img src={sell} alt="Хочу продать" />
+                        {data[0].state ? <div class="sell_complite"></div> : ''}
                     </div>
                 </div>
                 <div className="game-sell">
