@@ -156,13 +156,13 @@ function Game({ game }) {
                     </div>
                 </div>
                 <div className="game-sell">
-                    <div className="game-sell-wrap">
+                    <div className="game-sell-wrap" onClick={() => onSetShow('sell')}>
                         <img src={sell} alt="Хочу продать" />
                         {!data[0].state ? <div class="sell_complite"></div> : ''}
                     </div>
                 </div>
                 <div className="game-sell">
-                    <div className="game-sell-wrap">
+                    <div className="game-sell-wrap" onClick={() => onSetShow('buy')}>
                         <img src={buy} alt="Хочу купить" />
                     </div>
                 </div>
