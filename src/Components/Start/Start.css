@@ -10,10 +10,10 @@
     background-repeat: no-repeat;
     background-position: top center;
     color: transparent;
-    width: 34%;
-    height: 23%;
+    width: 27%;
+    height: 17%;
     background-size: contain;
-    bottom: -12%;
+    bottom: -9%;
     transition: all 0.3s ease;
 }
 
@@ -57,10 +57,18 @@
     border: 1px solid #7A7A7A;
 }
 
+.start-content a {
+    color: #9FC747;
+}
+
+.start-content a:hover {
+    color: #9FC747;
+    text-decoration: underline;
+}
+
 .start-content span {
-    font-size: 1.9em;
+    font-size: 2.25em;
     line-height: 2em;
-    margin-bottom: 1.5em;
     font-weight: 400;
     display: inline-block;
 }

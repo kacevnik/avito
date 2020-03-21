@@ -12,7 +12,8 @@ import kianu_sell from './img/kianu_sell.svg'
 import ilon_buy from './img/ilon_buy.svg'
 import billy_buy from './img/billy_buy.svg'
 import kianu_buy from './img/kianu_buy.svg'
-import billy_mess from './img/billy_mess.svg'
+import billy_mess_sell from './img/billy_mess_sell.svg'
+import billy_mess_buy from './img/billy_mess_buy.svg'
 import ilon_mess from './img/ilon_mess.svg'
 import kianu_mess from './img/kianu_mess.svg'
 import billy_sell_big from './img/billy_sell_big.svg'
@@ -36,13 +37,13 @@ function App() {
         hero: 'billy',
         img: img_billy,
         name: 'Билли Айлиш',
-        message: billy_mess,
         data: [
           {
             name: 'billy_sell',
             state: true,
             img: billy_sell,
             img_big: billy_sell_big,
+            message: billy_mess_sell,
             title: 'Альбом Билли Айлиш «When We All Fall Asleep, Where Do We Go?»',
             subtitle: 'Продаю свой дебютный альбом с автографом. Все подробности — в ЛС :))',
             price: '15 999 ₽',
@@ -77,11 +78,12 @@ function App() {
             state: true,
             img: billy_buy,
             img_big: billy_buy_big,
+            message: billy_mess_buy,
             title: 'Топовое худи от Goshan',
             subtitle: 'Самый popular русский streetwear-бренд. Экслюзив!',
             price: 'от 300 000 ₽',
             city: 'Москва',
-            seller: 'Гоша Рубчивский',
+            seller: 'Жора Рубчивский',
             seller_img: billy_seller_2,
             seller_text: 'Продавец топового шмота',
             seller_status: 'Пора обновить гардероб',

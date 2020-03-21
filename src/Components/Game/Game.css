@@ -572,8 +572,8 @@
 .hello-message {
     position: absolute;
     top: 25%;
-    right: -57%;
-    transform-origin: 0 center;
+    left: -57%;
+    transform-origin: 100% center;
     animation: mess 8s ease;
     opacity: 0;
     width: 84%;
@@ -599,31 +599,31 @@
 @keyframes mess {
     0%{
         opacity: 0;
-        transform: rotate(70deg);
+        transform: rotate(-34deg);
     }
     12.5%{
         opacity: 0;
-        transform: rotate(70deg);
+        transform: rotate(-34deg);
     }
     18% {
         opacity: 1;
-        transform: rotate(-10deg);
+        transform: rotate(8deg);
     }
     18.75% {
         opacity: 1;
-        transform: rotate(0deg);
+        transform: rotate(-2deg);
     }
     93.25%{
         opacity: 1;
-        transform: rotate(0deg);
+        transform: rotate(-2deg);
     }
     94%{
         opacity: 1;
-        transform: rotate(-10deg);
+        transform: rotate(8deg);
     }
     100%{
         opacity: 0;
-        transform: rotate(70deg);
+        transform: rotate(-34deg);
     }
 }
 

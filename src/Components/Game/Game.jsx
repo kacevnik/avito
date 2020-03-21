@@ -16,24 +16,22 @@ function Game({ game }) {
 
     const { onFinalSellBuy } = useContext(Context);
 
-    const { name, img, hero, data, message } = game;
+    const { name, img, hero, data } = game;
     const [show, setShow] = useState('mess_empty');
     const [userTap, setUserTap] = useState(['userTap']);
     const [mesAnime, setMesAnime] = useState(['chat-on']);
     const [lastMess, setLastMess] = useState('hide');
     const [startChat, setStartChat] = useState(false);
-    const [hideMes, setHideMes] = useState(false);
     const [sdelka, setSdelka] = useState(data[0]);
     const [countMess, setCountMess] = useState(0);
     const [sellOrBuy, SetsellOrBuy] = useState(false);
     const [chat, setChat] = useState(false);
     const [chatMess, setChatMess] = useState(sdelka.chat[1]);
     const [chatMessData, setChatMessData] = useState([sdelka.chat[0]]);
+    const [showHello, setShowHello] = useState(false)
     const sell = data[0].img
     const buy = data[1].img
     const cls = ['Game', hero, show]
-
-    let styleMes = {}
 
     const onSetsellOrBuy = (btn) => {
         SetsellOrBuy(true)
@@ -55,9 +53,10 @@ function Game({ game }) {
             if (btn === 'mess_empty' && chat) {
                 setShow('chat')
                 SetsellOrBuy(false)
-                setHideMes(true)
+                setShowHello(true)
             } else {
                 setShow(btn)
+                setShowHello(false)
             }
         }
     }
@@ -74,10 +73,6 @@ function Game({ game }) {
 
     if (startChat) {
         messCls.push('deseble');
-    }
-
-    if (hideMes) {
-        styleMes = { display: 'none' }
     }
 
     useEffect(() => {
@@ -173,7 +168,7 @@ function Game({ game }) {
                     <div className="img">
                         <img src={img} alt={name} />
                     </div>
-                    <img src={message} alt="Привет!!" className="hello-message" style={styleMes} />
+                    {showHello ? (<img src={sdelka.message} alt="Привет!!" className="hello-message" />) : ('')}
                     <div className="game-stars">
                         <span>Рейтинг</span>
                         <span className="stars">
