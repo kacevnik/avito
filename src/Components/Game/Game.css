@@ -103,6 +103,11 @@
     cursor: pointer;
 }
 
+.game-sell-wrap.deseble {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
 .game-sell-wrap img {
     width: 100%;
 }
