@@ -386,6 +386,27 @@
     overflow: hidden;
 }
 
+.game-result {
+    display: none;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.result .game-result {
+    display: flex;
+}
+
+.billy.result .chat-body {
+    background: url('./img/billy_result.svg')no-repeat center;
+    background-size: 100%;
+}
+
+.result .chat-on {
+    min-height: 10.7em;
+    padding: 2em 0 2em 2.5em;
+}
+
 .chat-on {
     min-height: 7.5em;
     border-top: 1px solid #7a7a7a;
@@ -408,7 +429,6 @@
     align-items: center;
     display: flex;
     justify-content: center;
-    height: 5.4em;
     flex-grow: 1;
     margin-right: 2.5em;
     cursor: pointer;
@@ -433,6 +453,11 @@
 }
 
 .chat-on-mess.final_end {
+    background: #9FC747;
+    border: 1px solid #7a7a7a;
+}
+
+.chat-on-mess.final_end:last-child {
     background: #976EEC;
     border: 1px solid #7a7a7a;
 }
@@ -611,11 +636,11 @@
     }
     18.75% {
         opacity: 1;
-        transform: rotate(-2deg);
+        transform: rotate(0deg);
     }
     93.25%{
         opacity: 1;
-        transform: rotate(-2deg);
+        transform: rotate(0deg);
     }
     94%{
         opacity: 1;

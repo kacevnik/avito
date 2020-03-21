@@ -37,6 +37,7 @@ function App() {
         hero: 'billy',
         img: img_billy,
         name: 'Билли Айлиш',
+        result: false,
         data: [
           {
             name: 'billy_sell',
@@ -66,11 +67,14 @@ function App() {
               { user: 'he', id: 'billy_11', mes: [{ text: { __html: 'Чтобы я мог перевести деньги, пришлите мне номер своей карты, дату и номер выдачи, а также код, расположенный с обратной стороны карты' }, count: 0 }] },
               { user: 'my', id: 'billy_12', mes: [{ text: { __html: 'Хорошо, секунду' }, count: 2 }, { text: { __html: 'А зачем вам столько информации?' }, count: 2 }] },
               { user: 'avito', id: 'billy_13', mes: [{ text: { __html: 'Этому покупателю можно доверять?' }, count: 2 }] },
-              { user: 'final', id: 'billy_14', mes: [{ text: { __html: 'Да, можно' }, count: 2 }, { text: { __html: 'Нет, что-то тут нечисто' }, count: 4 }] },
+              { user: 'final', id: 'billy_14', mes: [{ text: { __html: 'Да, можно' }, count: 2 }, { text: { __html: 'Нет, что-то тут нечисто' }, count: 5 }] },
               { user: 'avito_end', id: 'billy_15', mes: [{ text: { __html: '<div class="final-mess-no">Ты не прав!</div>Аккуратнее! Этот покупатель пытается выяснить у Билли личные данные — номер и код банковской карты. Разглашение такой информации ставит под угрозу финансовую и личную безопасность! Avito рекомендует держать свои личные данные при себе.' }, count: 2 }] },
-              { user: 'final_end', id: 'billy_16', mes: [{ text: { __html: 'Провернуть еще одну сделку' }, count: 2 }] },
-              { user: 'avito_end', id: 'billy_17', mes: [{ text: { __html: '<div class="final-mess-yes">Ты прав!</div>АЙ правда! Этот покупатель пытается выяснить у Билли личные данные — номер и код банковской карты. Разглашение такой информации ставит под угрозу финансовую и личную безопасность! Avito рекомендует держать свои личные данные при себе.' }, count: 2 }] },
-              { user: 'final_end', id: 'billy_18', mes: [{ text: { __html: 'Провернуть еще одну сделку' }, count: 2 }] },
+              { user: 'final_end', id: 'billy_16', mes: [{ text: { __html: 'Провернуть еще одну сделку' }, count: 2000 }] },
+              { user: 'final_end', id: 'billy_17', mes: [{ text: { __html: 'Узнать результат' }, count: 3000 }] },
+              { user: 'avito_end', id: 'billy_18', mes: [{ text: { __html: '<div class="final-mess-yes">Ты прав!</div>АЙ правда! Этот покупатель пытается выяснить у Билли личные данные — номер и код банковской карты. Разглашение такой информации ставит под угрозу финансовую и личную безопасность! Avito рекомендует держать свои личные данные при себе.' }, count: 2 }] },
+              { user: 'final_end', id: 'billy_19', mes: [{ text: { __html: 'Провернуть еще одну сделку' }, count: 2000 }] },
+              { user: 'final_end', id: 'billy_20', mes: [{ text: { __html: 'Узнать результат' }, count: 3000 }] },
+              { user: 'final_end', id: 'billy_21', mes: [{ text: { __html: 'Помочь другому' }, count: 2 }, { text: { __html: 'Поделиться' }, count: 2 }] },
             ],
           },
           {
@@ -98,11 +102,14 @@ function App() {
               { user: 'he', id: 'billy_9', mes: [{ text: { __html: 'С этим есть небольшая проблема: за моими нарядами выстраивает очередь. Но за внесенную предоплату могу внести тебя в лист ожидания.' }, count: 0 }] },
               { user: 'my', id: 'billy_10', mes: [{ text: { __html: 'А какие у вас гарантии?' }, count: 2 }, { text: { __html: 'Давайте номер карты, куда перечислять деньги!' }, count: 2 }] },
               { user: 'avito', id: 'billy_11', mes: [{ text: { __html: 'Этому покупателю можно доверять?' }, count: 2 }] },
-              { user: 'final', id: 'billy_12', mes: [{ text: { __html: 'Да, можно' }, count: 2 }, { text: { __html: 'Нет, что-то тут нечисто' }, count: 4 }] },
+              { user: 'final', id: 'billy_12', mes: [{ text: { __html: 'Да, можно' }, count: 2 }, { text: { __html: 'Нет, что-то тут нечисто' }, count: 5 }] },
               { user: 'avito_end', id: 'billy_13', mes: [{ text: { __html: '<div class="final-mess-no">Ты не прав!</div>Аккуратнее! Этот продавец отказывается встречаться лично и пытается получить предоплату за свой товар. Часто в таких случаях покупателю не удается вернуть свои деньги: продавец просто пропадает. Avito рекомендует постараться найти аналогичный товар или воспользоваться услугами проверенных продавцов и магазинов.' }, count: 2 }] },
-              { user: 'final_end', id: 'billy_14', mes: [{ text: { __html: 'Провернуть еще одну сделку' }, count: 2 }] },
-              { user: 'avito_end', id: 'billy_15', mes: [{ text: { __html: '<div class="final-mess-yes">Ты прав!</div>И правда! Этот продавец отказывается встречаться лично и пытается получить предоплату за свой товар. Часто в таких случаях покупателю не удается вернуть свои деньги: продавец просто пропадает. Avito рекомендует постараться найти аналогичный товар или воспользоваться услугами проверенных продавцов и магазинов.' }, count: 2 }] },
-              { user: 'final_end', id: 'billy_16', mes: [{ text: { __html: 'Провернуть еще одну сделку' }, count: 2 }] },
+              { user: 'final_end', id: 'billy_14', mes: [{ text: { __html: 'Провернуть еще одну сделку' }, count: 2000 }] },
+              { user: 'final_end', id: 'billy_15', mes: [{ text: { __html: 'Узнать результат' }, count: 3000 }] },
+              { user: 'avito_end', id: 'billy_16', mes: [{ text: { __html: '<div class="final-mess-yes">Ты прав!</div>И правда! Этот продавец отказывается встречаться лично и пытается получить предоплату за свой товар. Часто в таких случаях покупателю не удается вернуть свои деньги: продавец просто пропадает. Avito рекомендует постараться найти аналогичный товар или воспользоваться услугами проверенных продавцов и магазинов.' }, count: 2 }] },
+              { user: 'final_end', id: 'billy_17', mes: [{ text: { __html: 'Провернуть еще одну сделку' }, count: 2000 }] },
+              { user: 'final_end', id: 'billy_18', mes: [{ text: { __html: 'Узнать результат' }, count: 3000 }] },
+              { user: 'final_end', id: 'billy_19', mes: [{ text: { __html: 'Помочь другому' }, count: 2000 }, { text: { __html: 'Поделиться' }, count: 2 }] },
             ],
           },
         ],
@@ -193,15 +200,22 @@ function App() {
     setRem(window.innerWidth / 192)
   })
 
-  console.log(window.innerWidth)
-
   const st = {
     fontSize: rem + 'px'
   }
 
+  const chanheResult = (hero) => {
+    setGameData(gameData.map((el) => {
+      if (el.hero === hero) {
+        el.result = true
+      }
+      return el
+    }))
+  }
+
   return (
     <Context.Provider value={{
-      changeLevel, selectHero, setOverlay, onFinalSellBuy
+      changeLevel, selectHero, setOverlay, onFinalSellBuy, chanheResult
     }}>
       <div className="App" style={st}>
         <Canvas level={level} game={game[0]} />

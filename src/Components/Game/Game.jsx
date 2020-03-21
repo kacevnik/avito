@@ -14,9 +14,9 @@ import buy_btn from './img/buy_btn.png'
 
 function Game({ game }) {
 
-    const { onFinalSellBuy } = useContext(Context);
+    const { onFinalSellBuy, chanheResult } = useContext(Context);
 
-    const { name, img, hero, data } = game;
+    const { name, img, hero, data, result } = game;
     const [show, setShow] = useState('mess_empty');
     const [userTap, setUserTap] = useState(['userTap']);
     const [mesAnime, setMesAnime] = useState(['chat-on']);
@@ -31,7 +31,7 @@ function Game({ game }) {
     const [showHello, setShowHello] = useState(false)
     const sell = data[0].img
     const buy = data[1].img
-    const cls = ['Game', hero, show]
+    let cls = ['Game', hero, show]
 
     const onSetsellOrBuy = (btn) => {
         SetsellOrBuy(true)
@@ -53,11 +53,20 @@ function Game({ game }) {
             if (btn === 'mess_empty' && chat) {
                 setShow('chat')
                 SetsellOrBuy(false)
-                setShowHello(true)
+                if (chatMessData.length < 2) {
+                    setShowHello(true)
+                }
             } else {
                 setShow(btn)
                 setShowHello(false)
             }
+        }
+    }
+
+    if (result) {
+        cls = [cls[0], cls[1], 'result']
+        if (!startChat) {
+            setStartChat(true)
         }
     }
 
@@ -101,7 +110,17 @@ function Game({ game }) {
         return (<div key={el.id} className={cls.join(' ')}><div className="chat-message-mes"><span dangerouslySetInnerHTML={el.mes[0].text}></span></div><img src={elimg} alt={sdelka.seller} /></div>)
     })
 
+    const onGameMore = () => {
+        const action = data[0].state ? 'sell' : 'buy'
+        onSetShow(action)
+    }
+
+    const onResult = () => {
+        chanheResult(hero)
+    }
+
     const moreChatMes = chatMess.mes.map((el) => {
+
         let cls = ['chat-on-mess']
         if (chatMess.user === 'final') {
             cls.push('final')
@@ -110,7 +129,14 @@ function Game({ game }) {
             cls.push('final_end')
         }
 
-        return (<div key={el.text.__html} className={cls.join(' ')} onClick={() => onChatMove(el.text.__html, el.count)}><span dangerouslySetInnerHTML={el.text}></span></div>)
+        if (el.count === 2000) {
+            return (<div key={el.text.__html} className={cls.join(' ')} onClick={() => onGameMore()}><span dangerouslySetInnerHTML={el.text}></span></div>)
+        } else if (el.count === 3000) {
+            return (<div key={el.text.__html} className={cls.join(' ')} onClick={() => onResult()}><span dangerouslySetInnerHTML={el.text}></span></div>)
+        } else {
+            return (<div key={el.text.__html} className={cls.join(' ')} onClick={() => onChatMove(el.text.__html, el.count)}><span dangerouslySetInnerHTML={el.text}></span></div>)
+        }
+
     })
 
     const onChatMove = (el, count) => {
@@ -118,7 +144,7 @@ function Game({ game }) {
         let filterSdelka = { user: 'my', id: new Date().toString(), mes: [{ text: { __html: el }, count: count }] }
         let userMess = sdelka.chat.filter(b => b.id === hero + '_' + (countMess + count))
         setChatMessData([...chatMessData, filterSdelka, userMess[0]])
-        setChatMess(sdelka.chat.filter(s => s.id === hero + '_' + (countMess + count + 1))[0])
+
         if (userMess[0].user !== 'avito' && userMess[0].user !== 'avito_end') {
             setUserTap([...userTap, 'show'])
         }
@@ -131,6 +157,13 @@ function Game({ game }) {
             setStartChat(false)
             onFinalSellBuy(sdelka.name)
         }
+
+        if (userMess[0].user === 'avito_end' && (!data[0].state && !data[1].state)) {
+            setChatMess(sdelka.chat.filter(s => s.id === hero + '_' + (countMess + count + 2))[0])
+        } else {
+            setChatMess(sdelka.chat.filter(s => s.id === hero + '_' + (countMess + count + 1))[0])
+        }
+
         setLastMess('hide')
 
     }
@@ -179,13 +212,13 @@ function Game({ game }) {
                 <div className="game-sell">
                     <div className={'game-sell-wrap' + (startChat ? ' deseble' : '')} onClick={() => onSetShow('sell')}>
                         <img src={sell} alt="Хочу продать" />
-                        {!data[0].state ? <div class="sell_complite"></div> : ''}
+                        {!data[0].state ? <div className="sell_complite"></div> : ''}
                     </div>
                 </div>
                 <div className="game-sell">
                     <div className={'game-sell-wrap' + (startChat ? ' deseble' : '')} onClick={() => onSetShow('buy')}>
                         <img src={buy} alt="Хочу купить" />
-                        {!data[1].state ? <div class="buy_complite"></div> : ''}
+                        {!data[1].state ? <div className="buy_complite"></div> : ''}
                     </div>
                 </div>
             </div>
@@ -223,7 +256,7 @@ function Game({ game }) {
                 <div className="my-sell">
                     <div className="my-sell-img-wrap">
                         <img src={data[0].img_big} alt={data[0].title} className="my-sell-img" />
-                        {!data[0].state ? <div class="sell_complite"></div> : ''}
+                        {!data[0].state ? <div className="sell_complite"></div> : ''}
                     </div>
                     <div className="my-sell-desc">
                         <div className="atext">
@@ -242,7 +275,7 @@ function Game({ game }) {
                 <div className="my-buy">
                     <div className="my-sell-img-wrap">
                         <img src={data[1].img_big} alt={data[1].title} className="my-sell-img" />
-                        {!data[1].state ? <div class="buy_complite"></div> : ''}
+                        {!data[1].state ? <div className="buy_complite"></div> : ''}
                     </div>
                     <div className="my-sell-desc">
                         <div className="atext">
@@ -275,6 +308,12 @@ function Game({ game }) {
                         {chatMessages}
                         <div className={userTap.join(' ')}>{sdelka.seller + ' печатает...'}</div>
                     </div>
+                    <div className={mesAnime.join(' ')}>
+                        {moreChatMes}
+                    </div>
+                </div>
+                <div className="game-result">
+                    <div className="chat-body"></div>
                     <div className={mesAnime.join(' ')}>
                         {moreChatMes}
                     </div>
