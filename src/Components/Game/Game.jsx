@@ -28,7 +28,7 @@ function Game({ game }) {
     const [sellOrBuy, SetsellOrBuy] = useState(false);
     const [chat, setChat] = useState(false);
     const [chatMess, setChatMess] = useState(sdelka.chat[1]);
-    const [chatMessData, setChatMessSata] = useState([sdelka.chat[0]]);
+    const [chatMessData, setChatMessData] = useState([sdelka.chat[0]]);
     const sell = data[0].img
     const buy = data[1].img
     const cls = ['Game', hero, show]
@@ -40,9 +40,14 @@ function Game({ game }) {
         setChat(true)
         if (btn === 'buy') {
             setSdelka(data[1])
+            setChatMessData([])
+            setChatMess(data[1].chat[0])
         } else {
             setSdelka(data[0])
+            setChatMessData([data[0].chat[0]])
+            setChatMess(data[0].chat[1])
         }
+        setCountMess(0)
     }
 
     const onSetShow = (btn) => {
@@ -117,7 +122,7 @@ function Game({ game }) {
         setCountMess(countMess + count)
         let filterSdelka = { user: 'my', id: new Date().toString(), mes: [{ text: { __html: el }, count: count }] }
         let userMess = sdelka.chat.filter(b => b.id === hero + '_' + (countMess + count))
-        setChatMessSata([...chatMessData, filterSdelka, userMess[0]])
+        setChatMessData([...chatMessData, filterSdelka, userMess[0]])
         setChatMess(sdelka.chat.filter(s => s.id === hero + '_' + (countMess + count + 1))[0])
         if (userMess[0].user !== 'avito' && userMess[0].user !== 'avito_end') {
             setUserTap([...userTap, 'show'])
@@ -145,17 +150,18 @@ function Game({ game }) {
 
     useEffect(() => {
         let sec = 1500
-
-        if (chatMessData[chatMessData.length - 1].user === 'avito' || chatMessData[chatMessData.length - 1].user === 'avito_end') {
-            sec = 100
+        if (chatMessData.length > 0) {
+            if (chatMessData[chatMessData.length - 1].user === 'avito' || chatMessData[chatMessData.length - 1].user === 'avito_end') {
+                sec = 100
+            }
+            if (mesAnime.length === 1) {
+                setMesAnime([...mesAnime, 'hide'])
+                setTimeout(() => {
+                    setMesAnime([...mesAnime, 'show'])
+                }, sec)
+            }
         }
-        if (mesAnime.length === 1) {
-            setMesAnime([...mesAnime, 'hide'])
-            setTimeout(() => {
-                setMesAnime([...mesAnime, 'show'])
-            }, sec)
-        }
-    }, [mesAnime])
+    }, [mesAnime, chatMessData])
 
     return (
         <div className={cls.join(' ')}>
@@ -184,6 +190,7 @@ function Game({ game }) {
                 <div className="game-sell">
                     <div className="game-sell-wrap" onClick={() => onSetShow('buy')}>
                         <img src={buy} alt="Хочу купить" />
+                        {!data[1].state ? <div class="buy_complite"></div> : ''}
                     </div>
                 </div>
             </div>
@@ -238,7 +245,10 @@ function Game({ game }) {
                     </div>
                 </div>
                 <div className="my-buy">
-                    <img src={data[1].img_big} alt={data[1].title} className="my-sell-img" />
+                    <div className="my-sell-img-wrap">
+                        <img src={data[1].img_big} alt={data[1].title} className="my-sell-img" />
+                        {!data[1].state ? <div class="buy_complite"></div> : ''}
+                    </div>
                     <div className="my-sell-desc">
                         <div className="atext">
                             <div className="title">{data[1].title}</div>
@@ -247,9 +257,9 @@ function Game({ game }) {
                             <div className="city">{data[1].city}</div>
                         </div>
                         <div className="my-sell-desc-but">
-                            <span>
+                            {data[1].state ? <span>
                                 <img src={buy_btn} alt="Купить" onClick={() => onSetsellOrBuy('buy')} />
-                            </span>
+                            </span> : ''}
                         </div>
                     </div>
                 </div>

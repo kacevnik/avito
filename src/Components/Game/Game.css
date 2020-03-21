@@ -107,13 +107,20 @@
     width: 100%;
 }
 
-.sell_complite {
+.sell_complite, .buy_complite {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+.sell_complite {
     background: url(./img/sell_complite.svg)no-repeat center center;
+}
+
+.buy_complite {
+    background: url(./img/buy_complite.svg)no-repeat center center;
 }
 
 .my-sell-img-wrap {
@@ -124,6 +131,11 @@
 .my-sell-img-wrap .sell_complite {
     background-size: 25%;
     transform: rotate(26deg);
+}
+
+.my-sell-img-wrap .buy_complite {
+    background-size: 25%;
+    transform: rotate(-28deg);
 }
 
 .game-navbar {
