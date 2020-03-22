@@ -9,7 +9,9 @@ import billy_t from './img/billy_t.svg'
 import ilon_t from './img/ilon_t.svg'
 import kianu_t from './img/kianu_t.svg'
 
-function Select() {
+import SelectDone from '../SelectDone'
+
+function Select({ gameData }) {
     const { selectHero } = useContext(Context);
 
     return (
@@ -24,7 +26,7 @@ function Select() {
                 </span>
             </div>
             <div className="select-content">
-                <div className="select-item select-item_billy">
+                <div className={'select-item select-item_billy' + (gameData[0].result ? ' done' : '')}>
                     <div className="select-citem_wrap">
                         <div className="img">
                             <img src={billy} alt="Билли Айлиш" />
@@ -37,8 +39,9 @@ function Select() {
                         </p>
                     </div>
                     <button onClick={() => selectHero('billy')}>Выбрать</button>
+                    <SelectDone data={gameData[0]} />
                 </div>
-                <div className="select-item select-item_ilon">
+                <div className={"select-item select-item_ilon" + (gameData[1].result ? ' done' : '')}>
                     <div className="select-citem_wrap">
                         <div className="img">
                             <img src={ilon} alt="Илон Маск" />
@@ -51,8 +54,9 @@ function Select() {
                         </p>
                     </div>
                     <button onClick={() => selectHero('ilon')}>Выбрать</button>
+                    <SelectDone data={gameData[1]} />
                 </div>
-                <div className="select-item select-item_kianu">
+                <div className={"select-item select-item_kianu" + (gameData[2].result ? ' done' : '')}>
                     <div className="select-citem_wrap">
                         <div className="img">
                             <img src={kianu} alt="Киану Ривз" />
@@ -65,6 +69,7 @@ function Select() {
                         </p>
                     </div>
                     <button onClick={() => selectHero('kianu')}>Выбрать</button>
+                    <SelectDone data={gameData[2]} />
                 </div>
             </div>
         </div>

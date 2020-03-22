@@ -378,12 +378,27 @@
     color: #7a7a7a;
 }
 
-.chat-body {
+.chat-body-wrapp {
     flex-grow: 1;
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
+}
+
+.chat-body-wrapper {
     overflow: hidden;
+    height: 100%;
+    position: relative;
+}
+
+.chat-body {
+    display: block;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.result .chat-body {
+    display: flex;
+    flex-grow: 1;
+    position: relative;
 }
 
 .game-result {
@@ -610,11 +625,12 @@
     font-size: 1.4em;
     font-style: italic;
     color: #b2b2b2;
-    display: none;
+    opacity: 0;
+    transition: opacity .4s ease;
 }
 
 .userTap.show {
-    display: block;
+   opacity: 1;
 }
 
 .avito-hide-img {

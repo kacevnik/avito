@@ -1,0 +1,72 @@
+.done button {
+    display: none;
+}
+
+.hero-done {
+    line-height: 0.1em;
+    display: none;
+}
+
+.done .hero-done {
+    display: block;
+}
+
+.done .hero-done-btn {
+    display: flex;
+}
+
+.hero-done img {
+    width: 100%;
+}
+
+.hero-done-btn {
+    height: 6em;
+    border-top: 1px solid #7a7a7a;
+    background-color: white;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.hero-done-btn span {
+    font-size: 1.7em;
+}
+
+.hero-done-btn:hover span, .hero-done-btn:hover svg {
+    opacity: .8;
+}
+
+.select-item_billy .hero-done-btn {
+    color: #976EEC;
+}
+
+.select-item_ilon .hero-done-btn {
+    color: #9FC747;
+}
+
+.select-item_kianu .hero-done-btn {
+    color: #47A3F0;
+}
+
+.hero-done-btn svg {
+    margin-left: 1em;
+    width: 2.5em;
+    fill: #ffffff;
+}
+
+.select-item_billy .hero-done-btn svg {
+    fill: #976EEC;
+}
+
+.select-item_ilon .hero-done-btn svg {
+    fill: #9FC747;
+}
+
+.select-item_kianu .hero-done-btn svg {
+    fill: #47A3F0;
+}

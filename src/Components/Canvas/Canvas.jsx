@@ -4,7 +4,7 @@ import Start from '../Start';
 import Select from '../Select';
 import Game from '../Game';
 
-function Canvas({ level, game }) {
+function Canvas({ level, game, gameData }) {
 
     const [bp, setBp] = useState('center -70px, left bottom, center bottom, right bottom')
     let cls = ['Canvas', level];
@@ -34,7 +34,7 @@ function Canvas({ level, game }) {
         <div className={cls.join(' ')} style={style} onMouseMove={(e) => paralax(e)}>
             <div className="container_avito">
                 {level === 'start' ? (<Start />) : ('')}
-                {level === 'select' ? (<Select />) : ('')}
+                {level === 'select' ? (<Select gameData={gameData} />) : ('')}
                 {level === 'game' ? (<Game game={game} />) : ('')}
             </div>
         </ div >

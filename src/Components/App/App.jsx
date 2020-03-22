@@ -14,8 +14,6 @@ import billy_buy from './img/billy_buy.svg'
 import kianu_buy from './img/kianu_buy.svg'
 import billy_mess_sell from './img/billy_mess_sell.svg'
 import billy_mess_buy from './img/billy_mess_buy.svg'
-import ilon_mess from './img/ilon_mess.svg'
-import kianu_mess from './img/kianu_mess.svg'
 import billy_sell_big from './img/billy_sell_big.svg'
 import ilon_sell_big from './img/ilon_sell_big.svg'
 import kianu_sell_big from './img/kianu_sell_big.svg'
@@ -27,7 +25,7 @@ import billy_seller_2 from './img/billy_seller_2.svg'
 
 function App() {
 
-  const [levels, setLevel] = useState(['start', 'select', 'game', 'final'])
+  const [level, setLevel] = useState('start')
   const [hero, setHero] = useState('ilon')
   const [rem, setRem] = useState(window.innerWidth / 192)
   const [overlay, setOverlay] = useState(true)
@@ -37,6 +35,7 @@ function App() {
         hero: 'billy',
         img: img_billy,
         name: 'Билли Айлиш',
+        named: 'Билли Айлиш',
         result: false,
         data: [
           {
@@ -74,7 +73,6 @@ function App() {
               { user: 'avito_end', id: 'billy_18', mes: [{ text: { __html: '<div class="final-mess-yes">Ты прав!</div>АЙ правда! Этот покупатель пытается выяснить у Билли личные данные — номер и код банковской карты. Разглашение такой информации ставит под угрозу финансовую и личную безопасность! Avito рекомендует держать свои личные данные при себе.' }, count: 2 }] },
               { user: 'final_end', id: 'billy_19', mes: [{ text: { __html: 'Провернуть еще одну сделку' }, count: 2000 }] },
               { user: 'final_end', id: 'billy_20', mes: [{ text: { __html: 'Узнать результат' }, count: 3000 }] },
-              { user: 'final_end', id: 'billy_21', mes: [{ text: { __html: 'Помочь другому' }, count: 2 }, { text: { __html: 'Поделиться' }, count: 2 }] },
             ],
           },
           {
@@ -109,7 +107,6 @@ function App() {
               { user: 'avito_end', id: 'billy_16', mes: [{ text: { __html: '<div class="final-mess-yes">Ты прав!</div>И правда! Этот продавец отказывается встречаться лично и пытается получить предоплату за свой товар. Часто в таких случаях покупателю не удается вернуть свои деньги: продавец просто пропадает. Avito рекомендует постараться найти аналогичный товар или воспользоваться услугами проверенных продавцов и магазинов.' }, count: 2 }] },
               { user: 'final_end', id: 'billy_17', mes: [{ text: { __html: 'Провернуть еще одну сделку' }, count: 2000 }] },
               { user: 'final_end', id: 'billy_18', mes: [{ text: { __html: 'Узнать результат' }, count: 3000 }] },
-              { user: 'final_end', id: 'billy_19', mes: [{ text: { __html: 'Помочь другому' }, count: 2000 }, { text: { __html: 'Поделиться' }, count: 2 }] },
             ],
           },
         ],
@@ -119,7 +116,8 @@ function App() {
         hero: 'ilon',
         img: img_ilon,
         name: 'Илон Маск',
-        message: ilon_mess,
+        named: 'Илону Маску',
+        result: false,
         data: [
           {
             state: true,
@@ -145,7 +143,8 @@ function App() {
         hero: 'kianu',
         img: img_kianu,
         name: 'Киану Ривз',
-        message: kianu_mess,
+        named: 'Киану Ривзу',
+        result: false,
         data: [
           {
             state: true,
@@ -170,18 +169,16 @@ function App() {
     ]
   )
 
-  const level = levels[0];
-
   const game = gameData.filter(el => el.hero === hero)
 
-  const changeLevel = () => {
-    setLevel(levels.filter(el => el !== level))
+  const changeLevel = (level) => {
+    setLevel(level)
     setOverlay(true);
   }
 
   const selectHero = (hero) => {
     setHero(hero)
-    changeLevel()
+    changeLevel('game')
   }
 
   const onFinalSellBuy = (sdelka) => {
@@ -218,7 +215,7 @@ function App() {
       changeLevel, selectHero, setOverlay, onFinalSellBuy, chanheResult
     }}>
       <div className="App" style={st}>
-        <Canvas level={level} game={game[0]} />
+        <Canvas level={level} game={game[0]} gameData={gameData} />
         {overlay ? (<Overlay />) : ('')}
       </div>
     </Context.Provider>

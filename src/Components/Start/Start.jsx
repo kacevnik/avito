@@ -33,7 +33,7 @@ function Start() {
                     <i style={ist}>П</i>осмотрим, сможешь ли ты помочь иностранцам<br />и самому не попасть в непростую ситуацию!
                 </p>
             </div>
-            <button onClick={changeLevel}>Играть</button>
+            <button onClick={() => changeLevel('select')}>Играть</button>
         </div>
     );
 }

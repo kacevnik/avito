@@ -45,6 +45,7 @@
     border: 1px solid #7A7A7A;
     border-right: none;
     justify-content: space-between;
+    position: relative;
 }
 
 .select-item:last-child {
@@ -73,6 +74,13 @@
 
 .select-citem_wrap {
     padding: 2em;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.done .select-citem_wrap {
+    display: none;
 }
 
 .select-citem_wrap img {

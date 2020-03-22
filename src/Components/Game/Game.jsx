@@ -17,7 +17,7 @@ import fb from './img/fb.svg'
 
 function Game({ game }) {
 
-    const { onFinalSellBuy, chanheResult } = useContext(Context);
+    const { onFinalSellBuy, chanheResult, changeLevel } = useContext(Context);
 
     const { name, img, hero, data, result } = game;
     const [show, setShow] = useState('mess_empty');
@@ -89,7 +89,7 @@ function Game({ game }) {
 
     useEffect(() => {
         document.querySelector('.seller_status').style.width = document.querySelector('.nav-hero').offsetWidth + 1 + 'px'
-        document.querySelector('.chat-body').style.height = document.querySelector('.chat-body').offsetHeight + 'px'
+        document.querySelector('.chat-body-wrapp').style.height = document.querySelector('.chat-body-wrapp').offsetHeight + 'px'
     })
 
     const chatMessages = chatMessData.map((el, idx) => {
@@ -340,9 +340,13 @@ function Game({ game }) {
                             <span>{sdelka.seller_status}</span>
                         </div>
                     </div>
-                    <div className="chat-body">
-                        {chatMessages}
-                        <div className={userTap.join(' ')}>{sdelka.seller + ' печатает...'}</div>
+                    <div className="chat-body-wrapp">
+                        <div className="chat-body-wrapper">
+                            <div className="chat-body">
+                                {chatMessages}
+                                <div className={userTap.join(' ')}>{sdelka.seller + ' печатает...'}</div>
+                            </div>
+                        </div>
                     </div>
                     <div className={mesAnime.join(' ')}>
                         {moreChatMes}
@@ -351,7 +355,7 @@ function Game({ game }) {
                 <div className="game-result">
                     <div className="chat-body"></div>
                     <div className={mesAnime.join(' ')}>
-                        <div className="chang-hero">
+                        <div className="chang-hero" onClick={() => changeLevel('select')}>
                             <span>Выбрать другого</span>
                         </div>
                         <div className="chang-hero">
