@@ -143,6 +143,13 @@
     transform: rotate(-28deg);
 }
 
+.ilon .my-sell-img-wrap .buy_complite {
+    background-size: 25%;
+    transform: rotate(6deg);
+    background-position-x: 75%;
+    background-position-y: 16%;
+}
+
 .game-navbar {
     display: flex;
 }
@@ -417,6 +424,16 @@
     background-size: 100%;
 }
 
+.ilon.result .chat-body {
+    background: url('./img/ilon_result.svg')no-repeat center;
+    background-size: 100%;
+}
+
+.kianu.result .chat-body {
+    background: url('./img/kianu_result.svg')no-repeat center;
+    background-size: 100%;
+}
+
 .result .chat-on {
     min-height: 10.7em;
     padding: 2em 0 2em 2.5em;
@@ -496,6 +513,13 @@
     width: 5.4em;
 }
 
+.chat-messages span img {
+    display: block;
+    width: 100%;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
 .chat-messages.he, .chat-messages.my, .chat-messages.avito {
     display: flex;
     justify-content: flex-end;
@@ -527,6 +551,10 @@
 
 .chat-messages.he .chat-message-mes {
     background: #F8F8F8;
+}
+
+.chat-messages.he.have-img .chat-message-mes {
+    max-width: 35%;
 }
 
 .chat-messages.my .chat-message-mes {

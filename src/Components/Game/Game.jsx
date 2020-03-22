@@ -110,6 +110,10 @@ function Game({ game }) {
                 cls.push(lastMess)
             }
         }
+
+        if (el.mes[0].text.__html.indexOf('<img') >= 0) {
+            cls.push('have-img')
+        }
         return (<div key={el.id} className={cls.join(' ')}><div className="chat-message-mes"><span dangerouslySetInnerHTML={el.mes[0].text}></span></div><img src={elimg} alt={sdelka.seller} /></div>)
     })
 
