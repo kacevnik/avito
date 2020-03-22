@@ -11,6 +11,9 @@ import arrow from './img/arrow.svg'
 import empty from './img/empty.svg'
 import sell_btn from './img/sell_btn.png'
 import buy_btn from './img/buy_btn.png'
+import vk from './img/vk.svg'
+import tw from './img/tw.svg'
+import fb from './img/fb.svg'
 
 function Game({ game }) {
 
@@ -191,6 +194,39 @@ function Game({ game }) {
         }
     }, [mesAnime, chatMessData])
 
+    let url = ''
+    const urlProgect = 'https://medialeaks.ru/igra-smozhesh-li-tyi-ustroit-legendarnuyu-vecherinku/'
+    const title = 'Я Помого ' + name + ' с покупками через Avito. Теперь твоя очередь'
+    const desc = 'Я Помого ' + name + ' с покупками через Avito. Теперь твоя очередь'
+    const pimg = 'https://medialeaks.ru/igra-smozhesh-li-tyi-ustroit-legendarnuyu-vecherinku/'
+
+    const shareVk = () => {
+        url = 'http://vkontakte.ru/share.php?';
+        url += 'url=' + encodeURIComponent(urlProgect);
+        url += '&title=' + encodeURIComponent(title);
+        url += '&description=' + encodeURIComponent(desc);
+        url += '&image=' + encodeURIComponent(pimg);
+        url += '&noparse=true';
+        window.open(url, '', 'toolbar=0,status=0,width=626,height=436');
+    }
+
+    const shareTwitter = () => {
+        url = 'http://twitter.com/share?';
+        url += 'text=' + encodeURIComponent(title);
+        url += '&url=' + encodeURIComponent(urlProgect);
+        url += '&counturl=' + encodeURIComponent(urlProgect);
+        window.open(url, '', 'toolbar=0,status=0,width=626,height=436');
+    }
+
+    const shareFacebook = () => {
+        url = 'http://www.facebook.com/sharer.php?s=100';
+        url += '&p[title]=' + encodeURIComponent(title);
+        url += '&p[summary]=' + encodeURIComponent(desc);
+        url += '&p[url]=' + encodeURIComponent(urlProgect);
+        url += '&p[images][0]=' + encodeURIComponent(urlProgect);
+        window.open(url, '', 'toolbar=0,status=0,width=626,height=436');
+    }
+
     return (
         <div className={cls.join(' ')}>
             <img src={avito_img} alt="Avito" className="avito-hide-img" />
@@ -315,7 +351,15 @@ function Game({ game }) {
                 <div className="game-result">
                     <div className="chat-body"></div>
                     <div className={mesAnime.join(' ')}>
-                        {moreChatMes}
+                        <div className="chang-hero">
+                            <span>Выбрать другого</span>
+                        </div>
+                        <div className="chang-hero">
+                            <span>Поделится</span>
+                            <img src={vk} alt="Вконтакте" onClick={() => shareVk()} />
+                            <img src={tw} alt="Twitter" onClick={() => shareTwitter()} />
+                            <img src={fb} alt="Facebook" onClick={() => shareFacebook()} />
+                        </div>
                     </div>
                 </div>
             </div>
