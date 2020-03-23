@@ -466,6 +466,11 @@
     cursor: pointer;
     font-family: Ubuntu;
     opacity: 1;
+    transition: background 0.5s ease;
+}
+
+.chat-on-mess:hover {
+    background: rgba(71, 163, 240, 0.8);
 }
 
 .chat-on.show .chat-on-mess {
@@ -479,9 +484,17 @@
     border: 1px solid #7a7a7a;
 }
 
+.chat-on-mess.final:first-child:hover {
+    background: rgba(159, 199, 71, 0.8);
+}
+
 .chat-on-mess.final:last-child {
     background: #E76867;
     border: 1px solid #7a7a7a;
+}
+
+.chat-on-mess.final:last-child:hover {
+    background: rgb(231, 104, 103, 0.8);
 }
 
 .chat-on-mess.final_end {
@@ -492,6 +505,10 @@
 .chat-on-mess.final_end:last-child {
     background: #976EEC;
     border: 1px solid #7a7a7a;
+}
+
+.chat-on-mess.final_end:last-child:hover {
+    background: rgb(151, 110, 236, 0.8);
 }
 
 .chat-on-mess:hover {
