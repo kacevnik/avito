@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import { Context } from '../../context';
 
-import billy_done from './img/billy_done.svg'
-import ilon_done from './img/ilon_done.svg'
-import kianu_done from './img/kianu_done.svg'
+import billy_done from './img/billy_done.png'
+import ilon_done from './img/ilon_done.png'
+import kianu_done from './img/kianu_done.png'
 
 import './SelectDone.css'
 

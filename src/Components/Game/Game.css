@@ -420,17 +420,17 @@
 }
 
 .billy.result .chat-body {
-    background: url('./img/billy_result.svg')no-repeat center;
+    background: url('./img/billy_result.png')no-repeat center;
     background-size: 100%;
 }
 
 .ilon.result .chat-body {
-    background: url('./img/ilon_result.svg')no-repeat center;
+    background: url('./img/ilon_result.png')no-repeat center;
     background-size: 100%;
 }
 
 .kianu.result .chat-body {
-    background: url('./img/kianu_result.svg')no-repeat center;
+    background: url('./img/kianu_result.png')no-repeat center;
     background-size: 100%;
 }
 

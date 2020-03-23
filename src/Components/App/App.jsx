@@ -47,7 +47,7 @@ function App() {
         img: img_billy,
         name: 'Билли Айлиш',
         named: 'Билли Айлиш',
-        result: false,
+        result: true,
         data: [
           {
             name: 'billy_sell',
@@ -128,7 +128,7 @@ function App() {
         img: img_ilon,
         name: 'Илон Маск',
         named: 'Илону Маску',
-        result: false,
+        result: true,
         data: [
           {
             name: 'ilon_sell',
@@ -206,7 +206,7 @@ function App() {
         img: img_kianu,
         name: 'Киану Ривз',
         named: 'Киану Ривзу',
-        result: false,
+        result: true,
         data: [
           {
             name: 'kianu_sell',
