@@ -37,9 +37,19 @@ import gagarin from './img/gagarin.png'
 
 function App() {
 
+  const [mobile, setMobile] = useState(false)
+
+  const getRem = () => {
+    if (window.innerWidth < window.innerHeight && window.innerWidth < 768) {
+      setMobile(true)
+      return window.innerWidth / 37.5
+    }
+    return window.innerWidth / 192
+  }
+
   const [level, setLevel] = useState('start')
   const [hero, setHero] = useState('ilon')
-  const [rem, setRem] = useState(window.innerWidth / 192)
+  const [rem, setRem] = useState(getRem)
   const [overlay, setOverlay] = useState(true)
   const [overlayBlur, setOverlayBlur] = useState('hide')
   const [gameData, setGameData] = useState(
@@ -306,7 +316,7 @@ function App() {
   }
 
   window.addEventListener("resize", () => {
-    setRem(window.innerWidth / 192)
+    setRem(getRem)
   })
 
   const st = {
@@ -331,7 +341,7 @@ function App() {
       changeLevel, selectHero, setOverlay, onFinalSellBuy, chanheResult, onOverlayBlur
     }}>
       <div className="App" style={st}>
-        <Canvas level={level} overlayBlur={overlayBlur} game={game[0]} gameData={gameData} />
+        <Canvas level={level} overlayBlur={overlayBlur} game={game[0]} gameData={gameData} mobile={mobile} />
         {overlay ? (<Overlay />) : ('')}
         {overlayBlur === 'show' ? (<OverlayBlur overlayBlur={overlayBlur} />) : ('')}
       </div>

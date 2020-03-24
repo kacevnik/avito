@@ -78,4 +78,47 @@
     color: #47A3F0;
     font-weight: bold;
     line-height: 1.5em;
+    width: 56%;
+}
+
+@media(max-width: 768px) {
+    .Start {
+        margin: 1.3em 0 4.2em 0;
+    }
+
+    .start-logo {
+        width: 13.9em;
+    }
+
+    .start-header {
+        padding: 1em 1.5em;
+        background: #ffffff;
+        border: 1px solid #7A7A7A;
+        text-align: left;
+        margin-bottom: 15em;
+    }
+
+    .start-header .sub-title {
+        font-size: 1.7em;
+        line-height: 1.2em;
+    }
+
+    .start-content {
+        padding: 1.5em 1.5em 3em 1.5em;
+    }
+
+    .start-content span {
+        font-size: 1.3em;
+        line-height: 1.6em;
+    }
+
+    .start-content p {
+        font-size: 1.5em;
+        width: 100%;
+    }
+
+    .Start button {
+        width: 47%;
+        bottom: -13%;
+    }
 }
