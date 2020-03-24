@@ -4,6 +4,7 @@
     position: relative;
     display: flex;
     border: 1px solid #7A7A7A;
+    flex-wrap: wrap;
 }
 
 .game-column-1 {

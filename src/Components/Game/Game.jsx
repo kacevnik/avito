@@ -14,6 +14,7 @@ import buy_btn from './img/buy_btn.png'
 import vk from './img/vk.svg'
 import tw from './img/tw.svg'
 import fb from './img/fb.svg'
+import DoneLinks from '../DoneLinks/DoneLinks';
 
 function Game({ game, overlayBlur, gameData }) {
 
@@ -100,6 +101,7 @@ function Game({ game, overlayBlur, gameData }) {
         document.querySelector('.seller_status').style.width = document.querySelector('.nav-hero').offsetWidth + 1 + 'px'
         document.querySelector('.chat-body-wrapp').style.height = document.querySelector('.chat-body-wrapp').offsetHeight + 'px'
         document.querySelector('.game-sub-menu').style.width = document.querySelector('.nav-hero').offsetWidth + 1 + 'px'
+        document.querySelector('.done-links').style.bottom = '-' + (document.querySelector('.done-links').offsetHeight + 1) + 'px'
     })
 
     const chatMessages = chatMessData.map((el, idx) => {
@@ -253,7 +255,7 @@ function Game({ game, overlayBlur, gameData }) {
     const subMenuElem = gameData.map((el) => {
         if (el.hero === hero) return ''
         return (
-            <div className="game-nav-m nav-hero" onClick={() => changHeromenu(el.hero)}>
+            <div key={el.hero} className="game-nav-m nav-hero" onClick={() => changHeromenu(el.hero)}>
                 <span>{el.name}</span>
                 <img src={el.img} alt={el.name} className="avatar" />
                 <img src={arrow} alt="Стрелка" className="arrow" />
@@ -414,6 +416,7 @@ function Game({ game, overlayBlur, gameData }) {
                     </div>
                 </div>
             </div>
+            <DoneLinks data={gameData} />
         </div >
     );
 }
