@@ -47,7 +47,7 @@ function App() {
     return window.innerWidth / 192
   }
 
-  const [level, setLevel] = useState('start')
+  const [level, setLevel] = useState('select')
   const [hero, setHero] = useState('ilon')
   const [rem, setRem] = useState(getRem)
   const [overlay, setOverlay] = useState(true)

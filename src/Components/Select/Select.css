@@ -73,10 +73,13 @@
 }
 
 .select-citem_wrap {
-    padding: 2em;
     display: flex;
     flex-grow: 1;
     flex-direction: column;
+}
+
+.select-citem-wrap-img {
+    padding: 2em 2em 0 2em;
 }
 
 .done .select-citem_wrap {
@@ -88,19 +91,107 @@
 }
 
 .select-citem_wrap p {
+    padding: 0 2em 3em 2em;
+}
+
+.select-citem_wrap p span {
     font-size: 1.7em;
 }
 
 .select-item button {
-    font-size: 1em;
     border-top: 1px solid #7a7a7a;
     width: 100%;
     color: transparent;
-    height: 6em;
-    background: url(./img/btn.svg)no-repeat center center;
+    height: 3.35em;
     transition: all 300ms ease;
+    background: url(./img/btn.svg)no-repeat center center;
 }
 
 .select-item button:hover {
     opacity: .7;
+}
+
+.select-arrow {
+    display: none;
+    transition: all 0.5s ease;
+}
+
+.select-citem_wrap img.select-arrow {
+    width: 1.8em;
+}
+
+.billy_show .select-item_billy .select-arrow {
+    transform: rotate(90deg);
+}
+
+@media (max-width: 768px) {
+
+    .Select {
+        margin: 1.5em 0 3em 0;
+    }
+
+    .select-logo {
+        padding: 1.3em 2em 0.5em;
+        width: 27em;
+    }
+
+    .select-header {
+        padding: 1.5em 2.1em;
+        line-height: 1.6em;
+    }
+
+    .select-header span {
+        font-size: 1.3em;
+    }
+
+    .select-content {
+        flex-direction: column;
+    }
+
+    .select-item {
+        width: 100%;
+        border: 1px solid #7A7A7A;
+        border-bottom: none;
+    }
+
+    .select-item:last-child {
+        border-bottom: 1px solid #7A7A7A;
+    }
+
+    .select-citem_wrap {
+        height: 11.5em;
+        overflow: hidden;
+        flex-direction: column;
+    }
+
+    .select-citem-wrap-img {
+        padding: 1em 2em 1em 2em;
+        height: 11.5em;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .select-citem-wrap-img .img{
+        text-align: left;
+        display: flex;
+    }
+
+    .select-citem-wrap-img .img img{
+        width: 10em;
+    }
+
+    .select-citem-wrap-img .title {
+        text-align: left;
+        padding-left: 2em;
+        display: flex;
+    }
+
+    .select-item.select-item_ilon .title, .select-item.select-item_kianu .title {
+        margin: 0;
+    }
+
+    .select-arrow {
+        display: block;
+    }
 }
