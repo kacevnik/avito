@@ -15,10 +15,10 @@ import vk from './img/vk.svg'
 import tw from './img/tw.svg'
 import fb from './img/fb.svg'
 
-function Game({ game, overlayBlur }) {
+function Game({ game, overlayBlur, gameData }) {
 
-    const { onFinalSellBuy, chanheResult, changeLevel, onOverlayBlur } = useContext(Context);
-    console.log(overlayBlur)
+    const { onFinalSellBuy, chanheResult, changeLevel, onOverlayBlur, selectHero } = useContext(Context);
+
     const { name, img, hero, data, result } = game;
     const [show, setShow] = useState('mess_empty');
     const [userTap, setUserTap] = useState(['userTap']);
@@ -32,6 +32,7 @@ function Game({ game, overlayBlur }) {
     const [chatMess, setChatMess] = useState(sdelka.chat[1]);
     const [chatMessData, setChatMessData] = useState([sdelka.chat[0]]);
     const [showHello, setShowHello] = useState(false)
+    const [subMenu, setSubMenu] = useState(["game-sub-menu"])
     const sell = data[0].img
     const buy = data[1].img
     let cls = ['Game', hero, show]
@@ -66,6 +67,7 @@ function Game({ game, overlayBlur }) {
             }
         }
         onOverlayBlur('hide')
+        setSubMenu(["game-sub-menu"])
     }
 
     if (overlayBlur === 'chat' && show !== 'chat') {
@@ -97,6 +99,7 @@ function Game({ game, overlayBlur }) {
     useEffect(() => {
         document.querySelector('.seller_status').style.width = document.querySelector('.nav-hero').offsetWidth + 1 + 'px'
         document.querySelector('.chat-body-wrapp').style.height = document.querySelector('.chat-body-wrapp').offsetHeight + 'px'
+        document.querySelector('.game-sub-menu').style.width = document.querySelector('.nav-hero').offsetWidth + 1 + 'px'
     })
 
     const chatMessages = chatMessData.map((el, idx) => {
@@ -179,6 +182,7 @@ function Game({ game, overlayBlur }) {
         }
 
         setLastMess('hide')
+        setSubMenu(["game-sub-menu"])
 
     }
 
@@ -238,6 +242,35 @@ function Game({ game, overlayBlur }) {
         window.open(url, '', 'toolbar=0,status=0,width=626,height=436');
     }
 
+    const changHeromenu = (hero) => {
+        setSubMenu(["game-sub-menu"])
+        setShow('mess_empty')
+        setChat(false)
+        selectHero(hero)
+        setShowHello(false)
+    }
+
+    const subMenuElem = gameData.map((el) => {
+        if (el.hero === hero) return ''
+        return (
+            <div className="game-nav-m nav-hero" onClick={() => changHeromenu(el.hero)}>
+                <span>{el.name}</span>
+                <img src={el.img} alt={el.name} className="avatar" />
+                <img src={arrow} alt="Стрелка" className="arrow" />
+            </div >
+        )
+    })
+
+    const onSubMenu = () => {
+        if (subMenu.length === 1) {
+            if (!startChat) {
+                setSubMenu([...subMenu, 'show'])
+            }
+        } else {
+            setSubMenu(["game-sub-menu"])
+        }
+    }
+
     return (
         <div className={cls.join(' ')}>
             <img src={avito_img} alt="Avito" className="avito-hide-img" />
@@ -284,11 +317,14 @@ function Game({ game, overlayBlur }) {
                         <img src={one_messages} alt="1 Сообщение" className="clxImg2" />
                         <span>Сообщения</span>
                     </div>
-                    <div className={'game-nav-m nav-hero' + (startChat ? ' deseble' : '')}>
+                    <div className={'game-nav-m nav-hero' + (startChat ? ' deseble' : '')} onClick={() => onSubMenu()}>
                         <span>{name}</span>
                         <img src={img} alt={name} className="avatar" />
                         <img src={arrow} alt="Стрелка" className="arrow" />
                     </div>
+                </div>
+                <div className={subMenu.join(' ')}>
+                    {subMenuElem}
                 </div>
                 <div className="empty-result">
                     <img src={empty} alt="Начни играть" />
