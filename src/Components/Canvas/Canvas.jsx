@@ -4,7 +4,7 @@ import Start from '../Start';
 import Select from '../Select';
 import Game from '../Game';
 
-function Canvas({ level, game, gameData }) {
+function Canvas({ level, game, gameData, overlayBlur }) {
 
     const [bp, setBp] = useState('center -70px, left bottom, center bottom, right bottom')
     let cls = ['Canvas', level];
@@ -30,12 +30,16 @@ function Canvas({ level, game, gameData }) {
         backgroundPosition: bp
     }
 
+    if (overlayBlur === 'show') {
+        cls.push('ablur')
+    }
+
     return (
         <div className={cls.join(' ')} style={style} onMouseMove={(e) => paralax(e)}>
             <div className="container_avito">
                 {level === 'start' ? (<Start />) : ('')}
                 {level === 'select' ? (<Select gameData={gameData} />) : ('')}
-                {level === 'game' ? (<Game game={game} />) : ('')}
+                {level === 'game' ? (<Game game={game} overlayBlur={overlayBlur} />) : ('')}
             </div>
         </ div >
     );

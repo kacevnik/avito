@@ -3,6 +3,7 @@ import { Context } from '../../context';
 import './App.css';
 import Canvas from '../Canvas';
 import Overlay from '../Overlay';
+import OverlayBlur from '../OverlayBlur';
 import img_ilon from './img/ilon.svg'
 import img_billy from './img/billy.svg'
 import img_kianu from './img/kianu.svg'
@@ -40,6 +41,7 @@ function App() {
   const [hero, setHero] = useState('ilon')
   const [rem, setRem] = useState(window.innerWidth / 192)
   const [overlay, setOverlay] = useState(true)
+  const [overlayBlur, setOverlayBlur] = useState('hide')
   const [gameData, setGameData] = useState(
     [
       {
@@ -320,13 +322,18 @@ function App() {
     }))
   }
 
+  const onOverlayBlur = (blur) => {
+    setOverlayBlur(blur)
+  }
+
   return (
     <Context.Provider value={{
-      changeLevel, selectHero, setOverlay, onFinalSellBuy, chanheResult
+      changeLevel, selectHero, setOverlay, onFinalSellBuy, chanheResult, onOverlayBlur
     }}>
       <div className="App" style={st}>
-        <Canvas level={level} game={game[0]} gameData={gameData} />
+        <Canvas level={level} overlayBlur={overlayBlur} game={game[0]} gameData={gameData} />
         {overlay ? (<Overlay />) : ('')}
+        {overlayBlur === 'show' ? (<OverlayBlur overlayBlur={overlayBlur} />) : ('')}
       </div>
     </Context.Provider>
   );

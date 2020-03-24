@@ -15,10 +15,10 @@ import vk from './img/vk.svg'
 import tw from './img/tw.svg'
 import fb from './img/fb.svg'
 
-function Game({ game }) {
+function Game({ game, overlayBlur }) {
 
-    const { onFinalSellBuy, chanheResult, changeLevel } = useContext(Context);
-
+    const { onFinalSellBuy, chanheResult, changeLevel, onOverlayBlur } = useContext(Context);
+    console.log(overlayBlur)
     const { name, img, hero, data, result } = game;
     const [show, setShow] = useState('mess_empty');
     const [userTap, setUserTap] = useState(['userTap']);
@@ -49,6 +49,7 @@ function Game({ game }) {
             setChatMess(data[0].chat[1])
         }
         setCountMess(0)
+        onOverlayBlur('show')
     }
 
     const onSetShow = (btn) => {
@@ -64,6 +65,12 @@ function Game({ game }) {
                 setShowHello(false)
             }
         }
+        onOverlayBlur('hide')
+    }
+
+    if (overlayBlur === 'chat' && show !== 'chat') {
+        setChat(true)
+        onSetShow('mess_empty')
     }
 
     if (result) {
