@@ -18,6 +18,10 @@ function Canvas({ level, game, gameData, overlayBlur, mobile }) {
             setBp('center bottom');
         }
 
+        if (level === 'select' && mobile) {
+            setBp('bottom');
+        }
+
         if (level === 'start' && mobile) {
             setBp('0 top');
         }

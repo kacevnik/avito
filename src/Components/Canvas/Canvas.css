@@ -48,4 +48,11 @@
         background-repeat: no-repeat;
         background-size: 100%;
     }
+
+    .Canvas.select {
+        background-image: url(./img/select_mobile.png);
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: contain;
+    }
 }
