@@ -10,11 +10,14 @@
     background-image: url(./img/bg.png), url(./img/kuanu.png), url(./img/billy.png), url(./img/ilon.png);
     background-repeat: no-repeat;
     background-size: 101%, 27%, 43%, 35%;
+    background-position: center -7em, left bottom, center bottom, right bottom;
 }
 
 .Canvas.select {
-    background-image: url(./img/bg_1.svg), url(./img/bg_2.svg), url(./img/bg_3.svg), url(./img/bg_4.svg);
+    background-image: url(./img/bg_1.png), url(./img/bg_2.png);
     background-repeat: no-repeat;
+    background-position: center top, center bottom;
+    background-size: contain;
 }
 
 .Canvas.game {
@@ -22,6 +25,8 @@
     background-image: url(./img/game_bg.png);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center bottom;
+    list-style-position: center -7em, left bottom, center bottom, right bottom;
 }
 
 .container_avito {
@@ -34,25 +39,26 @@
     filter: blur(0.4em)
 }
 
-@media screen and (max-width: 767px) {
+/* mobile */
 
-    .container_avito {
-        width: 100%;
-        margin: 0 auto;
-        padding: 0 1em;
-    }
+.amobile .container_avito {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1em;
+}
 
-    .Canvas.start {
-        padding-bottom: 0;
-        background-image: url(./img/start_mobile.jpg);
-        background-repeat: no-repeat;
-        background-size: 100%;
-    }
+.amobile .Canvas.start {
+    padding-bottom: 0;
+    background-image: url(./img/start_mobile.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 0 top;
+}
 
-    .Canvas.select {
-        background-image: url(./img/select_mobile.png);
-        background-repeat: no-repeat;
-        background-position: bottom;
-        background-size: contain;
-    }
+.amobile .Canvas.select {
+    background-image: url(./img/select_mobile.png);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
+    background-position: bottom;
 }

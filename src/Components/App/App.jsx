@@ -43,6 +43,8 @@ function App() {
     if (window.innerWidth < window.innerHeight && window.innerWidth < 768) {
       setMobile(true)
       return window.innerWidth / 37.5
+    } else {
+      setMobile(false)
     }
     return window.innerWidth / 192
   }
@@ -336,11 +338,16 @@ function App() {
     setOverlayBlur(blur)
   }
 
+  let cls = ['App']
+  if (mobile) {
+    cls.push('amobile')
+  }
+
   return (
     <Context.Provider value={{
       changeLevel, selectHero, setOverlay, onFinalSellBuy, chanheResult, onOverlayBlur
     }}>
-      <div className="App" style={st}>
+      <div className={cls.join(' ')} style={st}>
         <Canvas level={level} overlayBlur={overlayBlur} game={game[0]} gameData={gameData} mobile={mobile} />
         {overlay ? (<Overlay />) : ('')}
         {overlayBlur === 'show' ? (<OverlayBlur overlayBlur={overlayBlur} />) : ('')}

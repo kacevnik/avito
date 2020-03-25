@@ -10,21 +10,11 @@ function Canvas({ level, game, gameData, overlayBlur, mobile }) {
     let cls = ['Canvas', level];
 
     useEffect(() => {
-        if (level === 'select' && bp !== 'left top, right top, left bottom, right bottom') {
-            setBp('left top, right top, left bottom, right bottom');
+
+        if (level !== 'start' || mobile) {
+            setBp('')
         }
 
-        if (level === 'game' && bp !== 'center bottom') {
-            setBp('center bottom');
-        }
-
-        if (level === 'select' && mobile) {
-            setBp('bottom');
-        }
-
-        if (level === 'start' && mobile) {
-            setBp('0 top');
-        }
     }, [bp, level, mobile])
 
     const paralax = (e) => {
