@@ -24,7 +24,7 @@
 .start-logo {
     border: 1px solid #7A7A7A;
     display: inline-block;
-    padding: 1.3em 0 0 0;
+    padding: 1.3em 2em 0;
     background: #ffffff;
     border-bottom: none;
     width: 23.4em;
@@ -52,13 +52,14 @@
 }
 
 .start-content {
-    padding: 2.5em 3.5em 6.5em 3.5em;
+    padding: 2.5em 5.6em 6.5em 5.6em;
     background: #ffffff;
     border: 1px solid #7A7A7A;
 }
 
 .start-content a {
     color: #9FC747;
+    font-weight: bold;
 }
 
 .start-content a:hover {
@@ -67,7 +68,7 @@
 }
 
 .start-content span {
-    font-size: 2.25em;
+    font-size: 2.1em;
     line-height: 2em;
     font-weight: 400;
     display: inline-block;
@@ -78,7 +79,7 @@
     color: #47A3F0;
     font-weight: bold;
     line-height: 1.5em;
-    width: 56%;
+    width: 70%;
 }
 
 /* mobile */

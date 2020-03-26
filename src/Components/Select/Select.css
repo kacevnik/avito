@@ -64,12 +64,12 @@
     background: #47A3F0;
 }
 
-.select-item.select-item_ilon .title {
-    margin: 0 0 0.4em;
+.select-item .title {
+    margin-bottom: 1em;
 }
 
-.select-item.select-item_kianu .title {
-    margin: 0.2em 0 0;
+.select-item .title span {
+    font-size: 3.7em;
 }
 
 .select-citem_wrap {

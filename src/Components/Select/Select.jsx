@@ -2,12 +2,9 @@ import React, { useContext, useState } from 'react';
 import './Select.css';
 import { Context } from '../../context';
 import logo from './img/logo.svg'
-import billy from '../App/img/billy.svg'
-import ilon from '../App/img/ilon.svg'
-import kianu from '../App/img/kianu.svg'
-import billy_t from './img/billy_t.svg'
-import ilon_t from './img/ilon_t.svg'
-import kianu_t from './img/kianu_t.svg'
+import billy from '../App/img/billy.png'
+import ilon from '../App/img/ilon.png'
+import kianu from '../App/img/kianu.png'
 import selectArrow from './img/select_arrow.svg'
 
 import SelectDone from '../SelectDone'
@@ -45,7 +42,7 @@ function Select({ gameData }) {
                                 <img src={billy} alt="Билли Айлиш" />
                             </div>
                             <div className="title">
-                                <img src={billy_t} alt="Билли Айлиш" />
+                                <span><strong><i>Б</i>и</strong>л<strong>ли</strong> <strong>А<i>й</i>ли</strong>ш</span>
                             </div>
                             <img src={selectArrow} alt="Выбор" className="select-arrow" onClick={() => onSelectArrow('billy')} />
                         </div>
@@ -67,7 +64,7 @@ function Select({ gameData }) {
                                 <img src={ilon} alt="Илон Маск" />
                             </div>
                             <div className="title">
-                                <img src={ilon_t} alt="Илон Маск" />
+                                <span><i>И</i>л<strong>он</strong> <i>М</i>а<strong>ск</strong></span>
                             </div>
                             <img src={selectArrow} alt="Выбор" className="select-arrow" onClick={() => onSelectArrow('ilon')} />
                         </div>
@@ -89,7 +86,7 @@ function Select({ gameData }) {
                                 <img src={kianu} alt="Киану Ривз" />
                             </div>
                             <div className="title">
-                                <img src={kianu_t} alt="Киану Ривз" />
+                                <span><strong><i>К</i></strong>и<strong>ану</strong> <strong>Ри<i>в</i></strong>з</span>
                             </div>
                             <img src={selectArrow} alt="Выбор" className="select-arrow" onClick={() => onSelectArrow('kianu')} />
                         </div>

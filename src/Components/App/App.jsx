@@ -4,9 +4,9 @@ import './App.css';
 import Canvas from '../Canvas';
 import Overlay from '../Overlay';
 import OverlayBlur from '../OverlayBlur';
-import img_ilon from './img/ilon.svg'
-import img_billy from './img/billy.svg'
-import img_kianu from './img/kianu.svg'
+import img_ilon from './img/ilon.png'
+import img_billy from './img/billy.png'
+import img_kianu from './img/kianu.png'
 import ilon_sell from './img/ilon_sell.svg'
 import billy_sell from './img/billy_sell.svg'
 import kianu_sell from './img/kianu_sell.svg'
@@ -50,7 +50,7 @@ function App() {
   }
 
   const [level, setLevel] = useState('start')
-  const [hero, setHero] = useState('ilon')
+  const [hero, setHero] = useState('billy')
   const [rem, setRem] = useState(getRem)
   const [overlay, setOverlay] = useState(true)
   const [overlayBlur, setOverlayBlur] = useState('hide')
@@ -88,11 +88,11 @@ function App() {
               { user: 'my', id: 'billy_8', mes: [{ text: { __html: 'Окей. Что требуется от меня?' }, count: 4 }] },
               { user: 'he', id: 'billy_9', mes: [{ text: { __html: 'Не очень хочется напрягать людей... Может, все-таки перевод?' }, count: 0 }] },
               { user: 'my', id: 'billy_10', mes: [{ text: { __html: 'Окей. Что требуется от меня?' }, count: 2 }] },
-              { user: 'he', id: 'billy_11', mes: [{ text: { __html: 'Чтобы я мог перевести деньги, пришлите мне номер своей карты, дату и номер выдачи, а также код, расположенный с обратной стороны карты' }, count: 0 }] },
+              { user: 'he', id: 'billy_11', mes: [{ text: { __html: 'Чтобы я могла перевести деньги, пришлите мне номер своей карты, дату и номер выдачи, а также код, расположенный с обратной стороны карты' }, count: 0 }] },
               { user: 'my', id: 'billy_12', mes: [{ text: { __html: 'Хорошо, секунду' }, count: 2 }, { text: { __html: 'А зачем вам столько информации?' }, count: 2 }] },
               { user: 'avito', id: 'billy_13', mes: [{ text: { __html: 'Этому покупателю можно доверять?' }, count: 2 }] },
               { user: 'final', id: 'billy_14', mes: [{ text: { __html: 'Да, можно' }, count: 2 }, { text: { __html: 'Нет, что-то тут нечисто' }, count: 5 }] },
-              { user: 'avito_end', id: 'billy_15', mes: [{ text: { __html: '<div class="final-mess-no">Ты не прав!</div>Аккуратнее! Этот покупатель пытается выяснить у Билли личные данные — номер и код банковской карты. Разглашение такой информации ставит под угрозу финансовую и личную безопасность! Avito рекомендует держать свои личные данные при себе.' }, count: 2 }] },
+              { user: 'avito_end', id: 'billy_15', mes: [{ text: { __html: '<div class="final-mess-no">Ты не прав!</div>Аккуратнее! Этот покупатель пытается выяснить у Билли личные данные — номер и код банковской карты. Разглашение такой информации ставит под угрозу финансовую и личную безопасность! Авито рекомендует держать свои личные данные при себе.' }, count: 2 }] },
               { user: 'final_end', id: 'billy_16', mes: [{ text: { __html: 'Провернуть еще одну сделку' }, count: 2000 }] },
               { user: 'final_end', id: 'billy_17', mes: [{ text: { __html: 'Узнать результат' }, count: 3000 }] },
               { user: 'avito_end', id: 'billy_18', mes: [{ text: { __html: '<div class="final-mess-yes">Ты прав!</div>АЙ правда! Этот покупатель пытается выяснить у Билли личные данные — номер и код банковской карты. Разглашение такой информации ставит под угрозу финансовую и личную безопасность! Avito рекомендует держать свои личные данные при себе.' }, count: 2 }] },
@@ -107,7 +107,7 @@ function App() {
             img_big: billy_buy_big,
             message: billy_mess_buy,
             title: 'Топовое худи от Goshan',
-            subtitle: 'Самый popular русский streetwear-бренд. Экслюзив!',
+            subtitle: 'Самый popular русский streetwear-бренд.<br>Экслюзив!',
             price: 'от 300 000 ₽',
             city: 'Москва',
             seller: 'Жора Рубчивский',
@@ -151,7 +151,7 @@ function App() {
             img_big: ilon_sell_big,
             message: ilon_mess_sell,
             title: 'Tesla Model S, моя любимая ласточка',
-            subtitle: 'Пробег: 420 км Состояние: как новенькая Цвет: черный',
+            subtitle: 'Пробег: 420 км<br>Состояние: как новенькая<br>Цвет: черный',
             price: '10 000 000 ₽',
             city: 'Москва',
             seller: 'Джон Рубин',
@@ -186,7 +186,7 @@ function App() {
             img_big: ilon_buy_big,
             message: ilon_mess_buy,
             title: 'Шапка великого Гагарина',
-            subtitle: 'Продаю шапку, которую носил Юрий Гагарин. В отличном состоянии, почти как новая. Цвет желтый, производство советское.',
+            subtitle: 'Продаю шапку, которую носил Юрий Гагарин.<br>В отличном состоянии, почти как новая. Цвет желтый, производство советское.',
             price: '59 500 ₽',
             city: 'Москва',
             seller: 'Михон Гагарин',
@@ -229,7 +229,7 @@ function App() {
             img_big: kianu_sell_big,
             message: kianu_mess_sell,
             title: 'iPhone 8 б/у',
-            subtitle: 'Продаю свой айфон. Пользовался им около года, но решил купить новый. В хорошем состоянии! Только Москва.',
+            subtitle: 'Продаю свой айфон. Пользовался им около года, но решил купить новый. В хорошем состоянии!<br>Только Москва.',
             price: '15 000 ₽',
             city: 'Москва',
             seller: 'Петя Дакотин',
@@ -351,6 +351,17 @@ function App() {
         <Canvas level={level} overlayBlur={overlayBlur} game={game[0]} gameData={gameData} mobile={mobile} />
         {overlay ? (<Overlay />) : ('')}
         {overlayBlur === 'show' ? (<OverlayBlur overlayBlur={overlayBlur} />) : ('')}
+        <div className="upload-img">
+          <img src={img_billy} alt="" />
+          <img src={img_kianu} alt="" />
+          <img src={img_ilon} alt="" />
+          <img src={billy_sell} alt="" />
+          <img src={ilon_sell} alt="" />
+          <img src={kianu_sell} alt="" />
+          <img src={billy_buy} alt="" />
+          <img src={ilon_buy} alt="" />
+          <img src={kianu_buy} alt="" />
+        </div>
       </div>
     </Context.Provider>
   );

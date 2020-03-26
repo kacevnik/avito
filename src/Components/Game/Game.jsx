@@ -33,6 +33,7 @@ function Game({ game, overlayBlur, gameData }) {
     const [chatMess, setChatMess] = useState(sdelka.chat[1]);
     const [chatMessData, setChatMessData] = useState([sdelka.chat[0]]);
     const [showHello, setShowHello] = useState(false)
+    const [showHello2, setShowHello2] = useState(result ? false : true)
     const [subMenu, setSubMenu] = useState(["game-sub-menu"])
     const sell = data[0].img
     const buy = data[1].img
@@ -59,8 +60,9 @@ function Game({ game, overlayBlur, gameData }) {
             if (btn === 'mess_empty' && chat) {
                 setShow('chat')
                 SetsellOrBuy(false)
-                if (chatMessData.length < 2) {
+                if (chatMessData.length < 2 && show === 'buy') {
                     setShowHello(true)
+                    setShowHello2(false)
                 }
             } else {
                 setShow(btn)
@@ -213,8 +215,8 @@ function Game({ game, overlayBlur, gameData }) {
 
     let url = ''
     const urlProgect = 'https://medialeaks.ru/igra-smozhesh-li-tyi-ustroit-legendarnuyu-vecherinku/'
-    const title = 'Я Помого ' + name + ' с покупками через Avito. Теперь твоя очередь'
-    const desc = 'Я Помого ' + name + ' с покупками через Avito. Теперь твоя очередь'
+    const title = 'Я помог ' + name + ' с покупками через Авито. Теперь твоя очередь!'
+    const desc = 'Я помог ' + name + ' с покупками через Авито. Теперь твоя очередь!'
     const pimg = 'https://medialeaks.ru/igra-smozhesh-li-tyi-ustroit-legendarnuyu-vecherinku/'
 
     const shareVk = () => {
@@ -250,6 +252,7 @@ function Game({ game, overlayBlur, gameData }) {
         setChat(false)
         selectHero(hero)
         setShowHello(false)
+        setShowHello2(true)
     }
 
     const subMenuElem = gameData.map((el) => {
@@ -271,6 +274,7 @@ function Game({ game, overlayBlur, gameData }) {
         } else {
             setSubMenu(["game-sub-menu"])
         }
+        setShowHello2(false)
     }
 
     return (
@@ -284,6 +288,7 @@ function Game({ game, overlayBlur, gameData }) {
                         <img src={img} alt={name} />
                     </div>
                     {showHello ? (<img src={sdelka.message} alt="Привет!!" className="hello-message" />) : ('')}
+                    {showHello2 ? (<img src={data[0].message} alt="Привет!!" className="hello-message" />) : ('')}
                     <div className="game-stars">
                         <span>Рейтинг</span>
                         <span className="stars">
@@ -345,8 +350,8 @@ function Game({ game, overlayBlur, gameData }) {
                     </div>
                     <div className="my-sell-desc">
                         <div className="atext">
-                            <div className="title">{data[0].title}</div>
-                            <div className="sub-title"><span>{data[0].subtitle}</span></div>
+                            <div className="title" dangerouslySetInnerHTML={{ __html: data[0].title }} />
+                            <div className="sub-title"><span dangerouslySetInnerHTML={{ __html: data[0].subtitle }} /></div>
                             <div className="price">{data[0].price}</div>
                             <div className="city">{data[0].city}</div>
                         </div>
@@ -364,8 +369,8 @@ function Game({ game, overlayBlur, gameData }) {
                     </div>
                     <div className="my-sell-desc">
                         <div className="atext">
-                            <div className="title">{data[1].title}</div>
-                            <div className="sub-title"><span>{data[1].subtitle}</span></div>
+                            <div className="title" dangerouslySetInnerHTML={{ __html: data[1].title }} />
+                            <div className="sub-title"><span dangerouslySetInnerHTML={{ __html: data[1].subtitle }} /></div>
                             <div className="price">{data[1].price}</div>
                             <div className="city">{data[1].city}</div>
                         </div>

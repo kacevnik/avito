@@ -7,6 +7,14 @@
 }
 
 @font-face {
+    font-family: 'Trebuchet';
+    src: url(../../fonts/TrebuchetMS-Bold.woff) format('woff'),
+         url(../../fonts/TrebuchetMS-Bold.ttf) format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'Ubuntu';
     src: url(../../fonts/UbuntuMono-Regular.woff) format('woff'),
          url(../../fonts/UbuntuMono-Regular.ttf) format('truetype');
@@ -19,6 +27,12 @@
     line-height: 2.5em;
     position: relative;
     user-select: none;
+}
+
+.upload-img {
+    overflow: hidden;
+    width: 0;
+    height: 0;
 }
 
 @media screen and (max-width: 767px) {
