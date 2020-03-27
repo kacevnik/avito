@@ -74,7 +74,7 @@ function App() {
     return window.innerWidth / 192
   }
 
-  const [level, setLevel] = useState('game')
+  const [level, setLevel] = useState('start')
   const [hero, setHero] = useState('ilon')
   const [rem, setRem] = useState(getRem)
   const [overlay, setOverlay] = useState(true)
