@@ -14,9 +14,11 @@ import buy_btn from './img/buy_btn.png'
 import vk from './img/vk.svg'
 import tw from './img/tw.svg'
 import fb from './img/fb.svg'
+
+import blue_arrow from './img/blue_arrow.png'
 import DoneLinks from '../DoneLinks/DoneLinks';
 
-function Game({ game, overlayBlur, gameData }) {
+function Game({ game, overlayBlur, gameData, mobile }) {
 
     const { onFinalSellBuy, chanheResult, changeLevel, onOverlayBlur, selectHero } = useContext(Context);
 
@@ -35,9 +37,10 @@ function Game({ game, overlayBlur, gameData }) {
     const [showHello, setShowHello] = useState(false)
     const [showHello2, setShowHello2] = useState(result ? false : true)
     const [subMenu, setSubMenu] = useState(["game-sub-menu"])
+    const [slide, setSlide] = useState(false)
     const sell = data[0].img
     const buy = data[1].img
-    let cls = ['Game', hero, show]
+    let cls = [hero, show]
 
     const onSetsellOrBuy = (btn) => {
         SetsellOrBuy(true)
@@ -100,10 +103,14 @@ function Game({ game, overlayBlur, gameData }) {
     }
 
     useEffect(() => {
-        document.querySelector('.seller_status').style.width = document.querySelector('.nav-hero').offsetWidth + 1 + 'px'
-        document.querySelector('.chat-body-wrapp').style.height = document.querySelector('.chat-body-wrapp').offsetHeight + 'px'
-        document.querySelector('.game-sub-menu').style.width = document.querySelector('.nav-hero').offsetWidth + 1 + 'px'
-        document.querySelector('.done-links').style.bottom = '-' + (document.querySelector('.done-links').offsetHeight + 1) + 'px'
+        if (!mobile) {
+            document.querySelector('.seller_status').style.width = document.querySelector('.game-column-2 .nav-hero').offsetWidth + 1 + 'px'
+            document.querySelector('.chat-body-wrapp').style.height = document.querySelector('.chat-body-wrapp').offsetHeight + 'px'
+            document.querySelector('.game-column-2 .game-sub-menu').style.width = document.querySelector('.game-column-2 .nav-hero').offsetWidth + 1 + 'px'
+            document.querySelector('.done-links').style.bottom = '-' + (document.querySelector('.done-links').offsetHeight + 1) + 'px'
+        } else {
+            document.querySelector('.game-column-2').style.height = document.querySelector('.game-column-1').offsetHeight + 'px'
+        }
     })
 
     const chatMessages = chatMessData.map((el, idx) => {
@@ -277,152 +284,262 @@ function Game({ game, overlayBlur, gameData }) {
         setShowHello2(false)
     }
 
+    let clsSumMenuWrap = ['select-pro-link']
+    if (subMenu.length > 1) {
+        clsSumMenuWrap.push('shw')
+    }
+
+    const onSetShowW = (sb) => {
+        setSlide(true)
+        onSetShow(sb)
+    }
+
+    if (slide) {
+        cls.push('slide')
+    }
+
+    const onBack = () => {
+        if (!startChat || result) {
+            setSlide(false)
+        }
+
+    }
+
     return (
-        <div className={cls.join(' ')}>
-            <img src={avito_img} alt="Avito" className="avito-hide-img" />
-            <div className="game-column-1">
-                <div className="game-profile">
-                    <div className="title"><span>Это ваш профиль,</span></div>
-                    <div className="name"><span>{name}</span></div>
-                    <div className="img">
-                        <img src={img} alt={name} />
+        <div className={cls.join(' ')} >
+            {!result ?
+                (<div><div className="game-title title-billy">
+                    <span><i>П</i><strong>омо</strong>г<strong>и</strong> <i>Б<strong>и</strong>л<strong>л</strong></i>и<strong><i>!</i></strong></span>
+                </div>
+                    <div className="game-title title-ilon">
+                        <span><i>П</i><strong>омо</strong>г<strong>и</strong> <i>И<strong>ло</strong></i><strong>н</strong>у<strong><i>!</i></strong></span>
                     </div>
-                    {showHello ? (<img src={sdelka.message} alt="Привет!!" className="hello-message" />) : ('')}
-                    {showHello2 ? (<img src={data[0].message} alt="Привет!!" className="hello-message" />) : ('')}
-                    <div className="game-stars">
-                        <span>Рейтинг</span>
-                        <span className="stars">
-                            <img src={stars} alt="Рейтинг" />
-                        </span>
+                    <div className="game-title title-kianu">
+                        <span><i>П</i><strong>омо</strong>г<strong>и</strong> <i>К<strong>иан</strong>у</i><strong><i>!</i></strong></span>
+                    </div></div>) : (<div className="game-title"><span><strong><i>У</i></strong>р<strong><i>а!</i></strong></span></div>)}
+
+            <div className="Game">
+                <img src={avito_img} alt="Avito" className="avito-hide-img" />
+                <div className="game-column-1">
+                    <div className="game-profile">
+                        <div className="select-profiles">
+                            <div className={clsSumMenuWrap.join(' ')} onClick={() => onSubMenu()}>
+                                <span>Профили</span>
+                                <img src={arrow} alt="Стрелка" />
+                            </div>
+                            <div className={subMenu.join(' ')}>
+                                {subMenuElem}
+                            </div>
+                        </div>
+                        <div className="game-profile-flex">
+                            <div className="game-profile-data">
+                                <div className="title"><span>Это ваш профиль,</span></div>
+                                <div className="name"><span>{name}</span></div>
+                            </div>
+                            <div className="img">
+                                <img src={img} alt={name} />
+                            </div>
+                        </div>
+                        {showHello && !mobile ? (<img src={sdelka.message} alt="Привет!!" className="hello-message" />) : ('')}
+                        {showHello2 && !mobile ? (<img src={data[0].message} alt="Привет!!" className="hello-message" />) : ('')}
+                        <div className="game-stars">
+                            <span>Рейтинг</span>
+                            <span className="stars">
+                                <img src={stars} alt="Рейтинг" />
+                            </span>
+                        </div>
+                    </div>
+                    <div className="mob-left-nav">
+                        <div className="game-navbar">
+                            <div className={'game-nav-m' + (show === 'sell' ? ' active' : '') + (startChat ? ' deseble' : '')} onClick={() => onSetShowW('sell')}>
+                                <img src={my} alt="Мои объявления" />
+                                <span>Мои объявления</span>
+                            </div>
+                            <div className={'game-nav-m' + (show === 'buy' ? ' active' : '') + (startChat ? ' deseble' : '')} onClick={() => onSetShowW('buy')} >
+                                <img src={hart} alt="Избранное" />
+                                <span>Избранное</span>
+                            </div>
+                            <div className={messCls.join(' ')} onClick={() => onSetShowW('mess_empty')}>
+                                <img src={messages} alt="Сообщения" className="clxImg1" />
+                                <img src={one_messages} alt="1 Сообщение" className="clxImg2" />
+                                <span>Сообщения</span>
+                            </div>
+                            <div className={'game-nav-m nav-hero' + (startChat ? ' deseble' : '')} onClick={() => onSubMenu()}>
+                                <span>{name}</span>
+                                <img src={img} alt={name} className="avatar" />
+                                <img src={arrow} alt="Стрелка" className="arrow" />
+                            </div>
+                        </div>
+                    </div>
+                    <div className="mob-sell-buy">
+                        <div className="mob-sell-buy-title">
+                            <div className="mob-sell-buy-item">Хочу купить:</div>
+                            <div className="mob-sell-buy-item">Хочу продать:</div>
+                        </div>
+                        <div className="mob-sell-buy-content">
+                            <div className="mob-sell-buy-wrap" onClick={() => onSetShowW('sell')} >
+                                <img src={data[0].mob} alt="Хочу купить" />
+                                <div className="title">
+                                    <span>{data[0].title}</span>
+                                </div>
+                                <div className="price">{data[0].price}</div>
+                                {!data[0].state ? <div className="sell_complite"></div> : ''}
+                            </div>
+                            <div className="mob-sell-buy-wrap" onClick={() => onSetShowW('buy')} >
+                                <img src={data[1].mob} alt="Хочу продать" />
+                                <div className="title">
+                                    <span>{data[1].title}</span>
+                                </div>
+                                <div className="price">{data[1].price}</div>
+                                {!data[1].state ? <div className="buy_complite"></div> : ''}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="game-sell">
+                        <div className={'game-sell-wrap' + (startChat ? ' deseble' : '')} onClick={() => onSetShow('sell')}>
+                            <img src={sell} alt="Хочу продать" />
+                            {!data[0].state ? <div className="sell_complite"></div> : ''}
+                        </div>
+                    </div>
+                    <div className="game-sell">
+                        <div className={'game-sell-wrap' + (startChat ? ' deseble' : '')} onClick={() => onSetShow('buy')}>
+                            <img src={buy} alt="Хочу купить" />
+                            {!data[1].state ? <div className="buy_complite"></div> : ''}
+                        </div>
                     </div>
                 </div>
-                <div className="game-sell">
-                    <div className={'game-sell-wrap' + (startChat ? ' deseble' : '')} onClick={() => onSetShow('sell')}>
-                        <img src={sell} alt="Хочу продать" />
-                        {!data[0].state ? <div className="sell_complite"></div> : ''}
+                <div className="game-column-2">
+                    <div className="game-navbar">
+                        <div className={'game-nav-m' + (show === 'sell' ? ' active' : '') + (startChat ? ' deseble' : '')} onClick={() => onSetShow('sell')}>
+                            <img src={my} alt="Мои объявления" />
+                            <span>Мои объявления</span>
+                        </div>
+                        <div className={'game-nav-m' + (show === 'buy' ? ' active' : '') + (startChat ? ' deseble' : '')} onClick={() => onSetShow('buy')} >
+                            <img src={hart} alt="Избранное" />
+                            <span>Избранное</span>
+                        </div>
+                        <div className={messCls.join(' ')} onClick={() => onSetShow('mess_empty')}>
+                            <img src={messages} alt="Сообщения" className="clxImg1" />
+                            <img src={one_messages} alt="1 Сообщение" className="clxImg2" />
+                            <span>Сообщения</span>
+                        </div>
+                        <div className={'game-nav-m nav-hero' + (startChat ? ' deseble' : '')} onClick={() => onSubMenu()}>
+                            <span>{name}</span>
+                            <img src={img} alt={name} className="avatar" />
+                            <img src={arrow} alt="Стрелка" className="arrow" />
+                        </div>
                     </div>
-                </div>
-                <div className="game-sell">
-                    <div className={'game-sell-wrap' + (startChat ? ' deseble' : '')} onClick={() => onSetShow('buy')}>
-                        <img src={buy} alt="Хочу купить" />
-                        {!data[1].state ? <div className="buy_complite"></div> : ''}
+                    <div className={subMenu.join(' ')}>
+                        {subMenuElem}
                     </div>
-                </div>
-            </div>
-            <div className="game-column-2">
-                <div className="game-navbar">
-                    <div className={'game-nav-m' + (show === 'sell' ? ' active' : '') + (startChat ? ' deseble' : '')} onClick={() => onSetShow('sell')}>
-                        <img src={my} alt="Мои объявления" />
-                        <span>Мои объявления</span>
+                    <div className="mob-right-nav">
+                        <div className={'mob-r-nav-back' + (startChat || result ? ' deseble' : '')} onClick={() => onBack()}>
+                            <img src={blue_arrow} alt="Назад" />
+                            <span>Назад</span>
+                        </div>
+                        <div className="mob-r-nav-state">
+                            {show === 'chat' || show === 'mess_empty' ? (<img className="mess-m-top" src={messages} alt="Мои сообщения" />) : ('')}
+                            {show === 'chat' || show === 'mess_empty' ? (<span>Мои сообщения</span>) : ('')}
+                            {show === 'sell' ? (<img src={my} alt="Мои объявления" />) : ('')}
+                            {show === 'sell' ? (<span>Мои объявления</span>) : ('')}
+                            {show === 'buy' ? (<img src={hart} alt="Избранное" />) : ('')}
+                            {show === 'buy' ? (<span>Избранное</span>) : ('')}
+                        </div>
+                        <div className="mob-r-nav-hero">
+                            <img src={img} alt={name} />
+                        </div>
                     </div>
-                    <div className={'game-nav-m' + (show === 'buy' ? ' active' : '') + (startChat ? ' deseble' : '')} onClick={() => onSetShow('buy')} >
-                        <img src={hart} alt="Избранное" />
-                        <span>Избранное</span>
-                    </div>
-                    <div className={messCls.join(' ')} onClick={() => onSetShow('mess_empty')}>
-                        <img src={messages} alt="Сообщения" className="clxImg1" />
-                        <img src={one_messages} alt="1 Сообщение" className="clxImg2" />
-                        <span>Сообщения</span>
-                    </div>
-                    <div className={'game-nav-m nav-hero' + (startChat ? ' deseble' : '')} onClick={() => onSubMenu()}>
-                        <span>{name}</span>
-                        <img src={img} alt={name} className="avatar" />
-                        <img src={arrow} alt="Стрелка" className="arrow" />
-                    </div>
-                </div>
-                <div className={subMenu.join(' ')}>
-                    {subMenuElem}
-                </div>
-                <div className="empty-result">
-                    <img src={empty} alt="Начни играть" />
-                    <div className="title">
-                        <span>{name.split(' ')[0]}, у вас нет новых сообщений :(</span>
-                    </div>
-                    <div className="mess">
-                        Продайте или купите что-нибудь<br />
+                    <div className="empty-result">
+                        <img src={empty} alt="Начни играть" />
+                        <div className="title">
+                            <span>{name.split(' ')[0]}, у вас нет новых сообщений :(</span>
+                        </div>
+                        <div className="mess">
+                            Продайте или купите что-нибудь<br />
                         и диалоги не заставят себя долго ждать!
                     </div>
-                </div>
-                <div className="my-sell">
-                    <div className="my-sell-img-wrap">
-                        <img src={data[0].img_big} alt={data[0].title} className="my-sell-img" />
-                        {!data[0].state ? <div className="sell_complite"></div> : ''}
                     </div>
-                    <div className="my-sell-desc">
-                        <div className="atext">
-                            <div className="title" dangerouslySetInnerHTML={{ __html: data[0].title }} />
-                            <div className="sub-title"><span dangerouslySetInnerHTML={{ __html: data[0].subtitle }} /></div>
-                            <div className="price">{data[0].price}</div>
-                            <div className="city">{data[0].city}</div>
+                    <div className="my-sell">
+                        <div className="my-sell-img-wrap">
+                            {mobile ? (<img src={data[0].mob_big} alt={data[0].title} className="my-sell-img" />) : (<img src={data[0].img_big} alt={data[0].title} className="my-sell-img" />)}
+                            {!data[0].state ? <div className="sell_complite"></div> : ''}
                         </div>
-                        <div className="my-sell-desc-but">
-                            {data[0].state ? <span>
-                                <img src={sell_btn} alt="Продать" onClick={() => onSetsellOrBuy('sell')} />
-                            </span> : ''}
-                        </div>
-                    </div>
-                </div>
-                <div className="my-buy">
-                    <div className="my-sell-img-wrap">
-                        <img src={data[1].img_big} alt={data[1].title} className="my-sell-img" />
-                        {!data[1].state ? <div className="buy_complite"></div> : ''}
-                    </div>
-                    <div className="my-sell-desc">
-                        <div className="atext">
-                            <div className="title" dangerouslySetInnerHTML={{ __html: data[1].title }} />
-                            <div className="sub-title"><span dangerouslySetInnerHTML={{ __html: data[1].subtitle }} /></div>
-                            <div className="price">{data[1].price}</div>
-                            <div className="city">{data[1].city}</div>
-                        </div>
-                        <div className="my-sell-desc-but">
-                            {data[1].state ? <span>
-                                <img src={buy_btn} alt="Купить" onClick={() => onSetsellOrBuy('buy')} />
-                            </span> : ''}
-                        </div>
-                    </div>
-                </div>
-                <div className="game-chat">
-                    <div className="seller">
-                        <div className="seller-profile">
-                            <img src={sdelka.seller_img} alt={sdelka.seller} />
-                            <div className="seller-profile-text">
-                                <div className="seller-name">{sdelka.seller}</div>
-                                <div className="seller-subname">{sdelka.seller_text}</div>
+                        <div className="my-sell-desc">
+                            <div className="atext">
+                                <div className="title" dangerouslySetInnerHTML={{ __html: data[0].title }} />
+                                <div className="sub-title"><span dangerouslySetInnerHTML={{ __html: data[0].subtitle }} /></div>
+                                <div className="price">{data[0].price}</div>
+                                <div className="city">{data[0].city}</div>
                             </div>
-                        </div>
-                        <div className="seller_status">
-                            <span>{sdelka.seller_status}</span>
-                        </div>
-                    </div>
-                    <div className="chat-body-wrapp">
-                        <div className="chat-body-wrapper">
-                            <div className="chat-body">
-                                {chatMessages}
-                                <div className={userTap.join(' ')}>{sdelka.seller + ' печатает...'}</div>
+                            <div className="my-sell-desc-but">
+                                {data[0].state ? <span>
+                                    <img src={sell_btn} alt="Продать" onClick={() => onSetsellOrBuy('sell')} />
+                                </span> : ''}
                             </div>
                         </div>
                     </div>
-                    <div className={mesAnime.join(' ')}>
-                        {moreChatMes}
+                    <div className="my-buy">
+                        <div className="my-sell-img-wrap">
+                            {mobile ? (<img src={data[1].mob_big} alt={data[1].title} className="my-sell-img" />) : (<img src={data[1].img_big} alt={data[1].title} className="my-sell-img" />)}
+                            {!data[1].state ? <div className="buy_complite"></div> : ''}
+                        </div>
+                        <div className="my-sell-desc">
+                            <div className="atext">
+                                <div className="title" dangerouslySetInnerHTML={{ __html: data[1].title }} />
+                                <div className="sub-title"><span dangerouslySetInnerHTML={{ __html: data[1].subtitle }} /></div>
+                                <div className="price">{data[1].price}</div>
+                                <div className="city">{data[1].city}</div>
+                            </div>
+                            <div className="my-sell-desc-but">
+                                {data[1].state ? <span>
+                                    <img src={buy_btn} alt="Купить" onClick={() => onSetsellOrBuy('buy')} />
+                                </span> : ''}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="game-chat">
+                        <div className="seller">
+                            <div className="seller-profile">
+                                <img src={sdelka.seller_img} alt={sdelka.seller} />
+                                <div className="seller-profile-text">
+                                    <div className="seller-name">{sdelka.seller}</div>
+                                    <div className="seller-subname">{sdelka.seller_text}</div>
+                                </div>
+                            </div>
+                            <div className="seller_status">
+                                <span>{sdelka.seller_status}</span>
+                            </div>
+                        </div>
+                        <div className="chat-body-wrapp">
+                            <div className="chat-body-wrapper">
+                                <div className="chat-body">
+                                    {chatMessages}
+                                    <div className={userTap.join(' ')}>{sdelka.seller + ' печатает...'}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={mesAnime.join(' ')}>
+                            {moreChatMes}
+                        </div>
+                    </div>
+                    <div className="game-result">
+                        <div className="chat-body"></div>
+                        <div className={mesAnime.join(' ')}>
+                            <div className="chang-hero" onClick={() => changeLevel('select')}>
+                                <span>Помочь другому</span>
+                            </div>
+                            <div className="chang-hero">
+                                <span>Поделится</span>
+                                <img src={vk} alt="Вконтакте" onClick={() => shareVk()} />
+                                <img src={tw} alt="Twitter" onClick={() => shareTwitter()} />
+                                <img src={fb} alt="Facebook" onClick={() => shareFacebook()} />
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div className="game-result">
-                    <div className="chat-body"></div>
-                    <div className={mesAnime.join(' ')}>
-                        <div className="chang-hero" onClick={() => changeLevel('select')}>
-                            <span>Выбрать другого</span>
-                        </div>
-                        <div className="chang-hero">
-                            <span>Поделится</span>
-                            <img src={vk} alt="Вконтакте" onClick={() => shareVk()} />
-                            <img src={tw} alt="Twitter" onClick={() => shareTwitter()} />
-                            <img src={fb} alt="Facebook" onClick={() => shareFacebook()} />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <DoneLinks data={gameData} />
-        </div >
+                {!mobile ? <DoneLinks data={gameData} /> : ('')}
+            </div >
+        </ div>
     );
 }
 

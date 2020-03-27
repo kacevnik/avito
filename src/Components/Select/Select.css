@@ -130,6 +130,16 @@
     transform: rotate(90deg);
 }
 
+.mob-done {
+    font-size: 1.6em;
+    display: none;
+}
+
+.select-item svg {
+    width: 2.2em;
+    display: none;
+}
+
 /* mobile */
 
 .amobile .Select {
@@ -200,12 +210,20 @@
 
 .amobile .select-citem-wrap-img .img img{
     width: 10em;
+    height: 10em;
 }
 
 .amobile .select-citem-wrap-img .title {
     text-align: left;
     padding-left: 2em;
     display: flex;
+    margin-bottom: 0;
+    min-width: 19em;
+    flex-direction: column;
+}
+
+.amobile .select-citem-wrap-img .title span {
+    font-size: 2.2em;
 }
 
 .amobile .select-item.select-item_ilon .title, .amobile .select-item.select-item_kianu .title {
@@ -213,6 +231,22 @@
 }
 
 .amobile .select-arrow {
+    display: block;
+}
+
+.amobile .done .select-arrow {
+    display: none;
+}
+
+.amobile .done .hero-done, .amobile .done .hero-done-btn{
+    display: none;
+}
+
+.done .mob-done {
+    display: block;
+}
+
+.amobile .done svg {
     display: block;
 }
 

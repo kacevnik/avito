@@ -15,12 +15,19 @@ function Select({ gameData }) {
     const [select, setSelect] = useState('')
 
     const onSelectArrow = (hero) => {
+
+        const arr = gameData.filter(el => el.hero === hero)
+
+        if (arr[0].result) {
+            setSelect('')
+            selectHero(hero)
+        }
+
         if (select === hero) {
             setSelect('')
         } else {
             setSelect(hero)
         }
-
     }
 
     return (
@@ -37,14 +44,18 @@ function Select({ gameData }) {
             <div className={'select-content' + (select ? ' ' + select + '_show' : '')}>
                 <div className={'select-item select-item_billy' + (gameData[0].result ? ' done' : '')}>
                     <div className="select-citem_wrap">
-                        <div className="select-citem-wrap-img">
+                        <div className="select-citem-wrap-img" onClick={() => onSelectArrow('billy')}>
                             <div className="img">
                                 <img src={billy} alt="Билли Айлиш" />
                             </div>
                             <div className="title">
                                 <span><strong><i>Б</i>и</strong>л<strong>ли</strong> <strong>А<i>й</i>ли</strong>ш</span>
+                                <div className="mob-done">Закрыла сделки</div>
                             </div>
-                            <img src={selectArrow} alt="Выбор" className="select-arrow" onClick={() => onSelectArrow('billy')} />
+                            <img src={selectArrow} alt="Выбор" className="select-arrow" />
+                            <svg viewBox="0 0 25 24" fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg" >
+                                <path d="M15.438 0.5V6.38416C9.97039 6.38432 0 6.44296 0 23.0988C1.1304 11.9608 6.32331 11.8908 15.438 11.8906V18.3165L24.5517 9.40754L15.438 0.5Z" />
+                            </svg>
                         </div>
                         <div className="select-citem-wrap-btn">
                             <p>
@@ -59,14 +70,18 @@ function Select({ gameData }) {
                 </div>
                 <div className={"select-item select-item_ilon" + (gameData[1].result ? ' done' : '')}>
                     <div className="select-citem_wrap">
-                        <div className="select-citem-wrap-img">
+                        <div className="select-citem-wrap-img" onClick={() => onSelectArrow('ilon')}>
                             <div className="img">
                                 <img src={ilon} alt="Илон Маск" />
                             </div>
                             <div className="title">
                                 <span><i>И</i>л<strong>он</strong> <i>М</i>а<strong>ск</strong></span>
+                                <div className="mob-done">Закрыл сделки</div>
                             </div>
-                            <img src={selectArrow} alt="Выбор" className="select-arrow" onClick={() => onSelectArrow('ilon')} />
+                            <img src={selectArrow} alt="Выбор" className="select-arrow" />
+                            <svg viewBox="0 0 25 24" fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg" >
+                                <path d="M15.438 0.5V6.38416C9.97039 6.38432 0 6.44296 0 23.0988C1.1304 11.9608 6.32331 11.8908 15.438 11.8906V18.3165L24.5517 9.40754L15.438 0.5Z" />
+                            </svg>
                         </div>
                         <div className="select-citem-wrap-btn">
                             <p>
@@ -81,14 +96,18 @@ function Select({ gameData }) {
                 </div>
                 <div className={"select-item select-item_kianu" + (gameData[2].result ? ' done' : '')}>
                     <div className="select-citem_wrap">
-                        <div className="select-citem-wrap-img">
+                        <div className="select-citem-wrap-img" onClick={() => onSelectArrow('kianu')}>
                             <div className="img">
                                 <img src={kianu} alt="Киану Ривз" />
                             </div>
                             <div className="title">
                                 <span><strong><i>К</i></strong>и<strong>ану</strong> <strong>Ри<i>в</i></strong>з</span>
+                                <div className="mob-done">Закрыл сделки</div>
                             </div>
-                            <img src={selectArrow} alt="Выбор" className="select-arrow" onClick={() => onSelectArrow('kianu')} />
+                            <img src={selectArrow} alt="Выбор" className="select-arrow" />
+                            <svg viewBox="0 0 25 24" fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg" >
+                                <path d="M15.438 0.5V6.38416C9.97039 6.38432 0 6.44296 0 23.0988C1.1304 11.9608 6.32331 11.8908 15.438 11.8906V18.3165L24.5517 9.40754L15.438 0.5Z" />
+                            </svg>
                         </div>
                         <div className="select-citem-wrap-btn">
                             <p>

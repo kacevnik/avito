@@ -32,6 +32,22 @@ import billy_seller_2 from './img/billy_seller_2.svg'
 import ilon_seller_2 from './img/ilon_seller_2.svg'
 import kianu_seller_2 from './img/kianu_seller_2.svg'
 
+import billy_sell_mob from './img/billy_sell_mob.png'
+import ilon_sell_mob from './img/ilon_sell_mob.png'
+import kianu_sell_mob from './img/kianu_sell_mob.png'
+
+import billy_buy_mob from './img/billy_buy_mob.png'
+import ilon_buy_mob from './img/ilon_buy_mob.png'
+import kianu_buy_mob from './img/kianu_buy_mob.png'
+
+import billy_sell_mob_big from './img/billy_sell_mob_big.png'
+import ilon_sell_mob_big from './img/ilon_sell_mob_big.png'
+import kianu_sell_mob_big from './img/kianu_sell_mob_big.png'
+
+import billy_buy_mob_big from './img/billy_buy_mob_big.png'
+import ilon_buy_mob_big from './img/ilon_buy_mob_big.png'
+import kianu_buy_mob_big from './img/kianu_buy_mob_big.png'
+
 import scan from './img/scan.png'
 import gagarin from './img/gagarin.png'
 
@@ -49,7 +65,7 @@ function App() {
     return window.innerWidth / 192
   }
 
-  const [level, setLevel] = useState('start')
+  const [level, setLevel] = useState('game')
   const [hero, setHero] = useState('billy')
   const [rem, setRem] = useState(getRem)
   const [overlay, setOverlay] = useState(true)
@@ -61,13 +77,15 @@ function App() {
         img: img_billy,
         name: 'Билли Айлиш',
         named: 'Билли Айлиш',
-        result: false,
+        result: true,
         data: [
           {
             name: 'billy_sell',
             state: true,
             img: billy_sell,
             img_big: billy_sell_big,
+            mob: billy_sell_mob,
+            mob_big: billy_sell_mob_big,
             message: billy_mess_sell,
             title: 'Альбом Билли Айлиш «When We All Fall Asleep, Where Do We Go?»',
             subtitle: 'Продаю свой дебютный альбом с автографом. Все подробности — в ЛС :))',
@@ -105,6 +123,8 @@ function App() {
             state: true,
             img: billy_buy,
             img_big: billy_buy_big,
+            mob: billy_buy_mob,
+            mob_big: billy_buy_mob_big,
             message: billy_mess_buy,
             title: 'Топовое худи от Goshan',
             subtitle: 'Самый popular русский streetwear-бренд.<br>Экслюзив!',
@@ -149,6 +169,8 @@ function App() {
             state: true,
             img: ilon_sell,
             img_big: ilon_sell_big,
+            mob: ilon_sell_mob,
+            mob_big: ilon_sell_mob_big,
             message: ilon_mess_sell,
             title: 'Tesla Model S, моя любимая ласточка',
             subtitle: 'Пробег: 420 км<br>Состояние: как новенькая<br>Цвет: черный',
@@ -184,6 +206,8 @@ function App() {
             state: true,
             img: ilon_buy,
             img_big: ilon_buy_big,
+            mob: ilon_buy_mob,
+            mob_big: ilon_buy_mob_big,
             message: ilon_mess_buy,
             title: 'Шапка великого Гагарина',
             subtitle: 'Продаю шапку, которую носил Юрий Гагарин.<br>В отличном состоянии, почти как новая. Цвет желтый, производство советское.',
@@ -227,6 +251,8 @@ function App() {
             state: true,
             img: kianu_sell,
             img_big: kianu_sell_big,
+            mob: kianu_sell_mob,
+            mob_big: kianu_sell_mob_big,
             message: kianu_mess_sell,
             title: 'iPhone 8 б/у',
             subtitle: 'Продаю свой айфон. Пользовался им около года, но решил купить новый. В хорошем состоянии!<br>Только Москва.',
@@ -259,6 +285,8 @@ function App() {
             state: true,
             img: kianu_buy,
             img_big: kianu_buy_big,
+            mob: kianu_buy_mob,
+            mob_big: kianu_buy_mob_big,
             message: kianu_mess_buy,
             title: 'Лучшие орхидеи на любой вкус и цвет',
             subtitle: 'Имеются разные сорта в наличии: простые фаленопсисы и редкие селективные орхидеи! Возможна доставка ростков по всей России! Лучшее качество.',
@@ -350,7 +378,7 @@ function App() {
       <div className={cls.join(' ')} style={st}>
         <Canvas level={level} overlayBlur={overlayBlur} game={game[0]} gameData={gameData} mobile={mobile} />
         {overlay ? (<Overlay />) : ('')}
-        {overlayBlur === 'show' ? (<OverlayBlur overlayBlur={overlayBlur} />) : ('')}
+        {overlayBlur === 'show' ? (<OverlayBlur overlayBlur={overlayBlur} mobile={mobile} game={game[0]} />) : ('')}
         <div className="upload-img">
           <img src={img_billy} alt="" />
           <img src={img_kianu} alt="" />
@@ -361,6 +389,12 @@ function App() {
           <img src={billy_buy} alt="" />
           <img src={ilon_buy} alt="" />
           <img src={kianu_buy} alt="" />
+          <img src={billy_sell_mob} alt="" />
+          <img src={ilon_sell_mob} alt="" />
+          <img src={kianu_sell_mob} alt="" />
+          <img src={billy_buy_mob} alt="" />
+          <img src={ilon_buy_mob} alt="" />
+          <img src={kianu_buy_mob} alt="" />
         </div>
       </div>
     </Context.Provider>

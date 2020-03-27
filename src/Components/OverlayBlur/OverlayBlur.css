@@ -13,3 +13,43 @@
 .overlay-blur img {
     width: 20%;
 }
+
+.new-mess {
+    display: flex;
+    background: #ffffff;
+    border: 1px solid #7a7a7a;
+    flex-direction: column;
+    min-height: 14.6em;
+    width: 80%;
+}
+
+.new-mess-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    padding: 1.2em 0 1em;
+}
+
+.new-mess-img img {
+    width: 6em;
+}
+
+.new-mess-img span {
+    font-size: 1.6em;
+    font-weight: bold;
+    font-family: Ubuntu;
+}
+
+.new-mess-btn {
+    display: flex;
+    border-top: 1px solid#7a7a7a;
+    min-height: 4em;
+    align-items: center;
+    justify-content: center;
+}
+
+.new-mess-btn span {
+    font-size: 1.6em;
+    font-weight: bold;
+}

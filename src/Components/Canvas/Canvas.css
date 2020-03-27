@@ -62,3 +62,12 @@
     background-size: contain;
     background-position: bottom;
 }
+
+.amobile .Canvas.game {
+    background-color: #FFFFFF;
+    background-image: url(./img/select_mobile.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    list-style-position: center -7em, left bottom, center bottom, right bottom;
+}

@@ -37,7 +37,7 @@ function Canvas({ level, game, gameData, overlayBlur, mobile }) {
             <div className="container_avito">
                 {level === 'start' ? (<Start mobile={mobile} />) : ('')}
                 {level === 'select' ? (<Select gameData={gameData} />) : ('')}
-                {level === 'game' ? (<Game game={game} gameData={gameData} overlayBlur={overlayBlur} />) : ('')}
+                {level === 'game' ? (<Game game={game} gameData={gameData} overlayBlur={overlayBlur} mobile={mobile} />) : ('')}
             </div>
         </ div >
     );
