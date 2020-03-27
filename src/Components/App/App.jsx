@@ -48,6 +48,15 @@ import billy_buy_mob_big from './img/billy_buy_mob_big.png'
 import ilon_buy_mob_big from './img/ilon_buy_mob_big.png'
 import kianu_buy_mob_big from './img/kianu_buy_mob_big.png'
 
+import billy_mess_push_mob from './img/billy_mess_push_mob.png'
+import ilon_mess_push_mob from './img/ilon_mess_push_mob.png'
+
+import ilon_mess_sell_mob from './img/ilon_mess_sell_mob.png'
+
+import billy_mess_buy_mob from './img/billy_mess_buy_mob.png'
+import ilon_mess_buy_mob from './img/ilon_mess_buy_mob.png'
+import kianu_mess_buy_mob from './img/kianu_mess_buy_mob.png'
+
 import scan from './img/scan.png'
 import gagarin from './img/gagarin.png'
 
@@ -66,10 +75,11 @@ function App() {
   }
 
   const [level, setLevel] = useState('game')
-  const [hero, setHero] = useState('billy')
+  const [hero, setHero] = useState('ilon')
   const [rem, setRem] = useState(getRem)
   const [overlay, setOverlay] = useState(true)
   const [overlayBlur, setOverlayBlur] = useState('hide')
+
   const [gameData, setGameData] = useState(
     [
       {
@@ -77,7 +87,8 @@ function App() {
         img: img_billy,
         name: 'Билли Айлиш',
         named: 'Билли Айлиш',
-        result: true,
+        result: false,
+        push: [billy_mess_push_mob, billy_mess_buy_mob, false],
         data: [
           {
             name: 'billy_sell',
@@ -163,6 +174,7 @@ function App() {
         name: 'Илон Маск',
         named: 'Илону Маску',
         result: false,
+        push: [ilon_mess_push_mob, ilon_mess_buy_mob, ilon_mess_sell_mob],
         data: [
           {
             name: 'ilon_sell',
@@ -245,6 +257,7 @@ function App() {
         name: 'Киану Ривз',
         named: 'Киану Ривзу',
         result: false,
+        push: [false, kianu_mess_buy_mob, false],
         data: [
           {
             name: 'kianu_sell',

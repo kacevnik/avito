@@ -1153,6 +1153,7 @@
     align-items: center;
     padding: 0 0.5em;
     border-left: 1px solid #7A7A7A;
+    position: relative;
 }
 
 .mob-r-nav-hero img {
@@ -1462,4 +1463,15 @@
 .amobile .userTap {
     font-size: 1em;
     line-height: 1.5em;
+}
+
+.amobile .hello-message {
+    top: 50%;
+    left: -235%;
+    width: 84%;
+    z-index: 10;
+}
+
+.amobile .mob-r-nav-hero img.hello-message {
+    width: 12em;
 }

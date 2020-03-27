@@ -22,7 +22,7 @@ function Game({ game, overlayBlur, gameData, mobile }) {
 
     const { onFinalSellBuy, chanheResult, changeLevel, onOverlayBlur, selectHero } = useContext(Context);
 
-    const { name, img, hero, data, result } = game;
+    const { name, img, hero, data, result, push } = game;
     const [show, setShow] = useState('mess_empty');
     const [userTap, setUserTap] = useState(['userTap']);
     const [mesAnime, setMesAnime] = useState(['chat-on']);
@@ -447,6 +447,9 @@ function Game({ game, overlayBlur, gameData, mobile }) {
                         </div>
                         <div className="mob-r-nav-hero">
                             <img src={img} alt={name} />
+                            {mobile && show === 'sell' && slide && push[2] ? (<img src={push[2]} alt="Привет!!" className="hello-message" />) : ('')}
+                            {mobile && show === 'buy' && slide && push[1] ? (<img src={push[1]} alt="Привет!!" className="hello-message" />) : ('')}
+                            {mobile && slide && show === 'mess_empty' && show !== 'chat' && push[0] ? (<img src={push[0]} alt="Привет!!" className="hello-message" />) : ('')}
                         </div>
                     </div>
                     <div className="empty-result">
