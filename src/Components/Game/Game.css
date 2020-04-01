@@ -1197,10 +1197,14 @@
 
 .amobile .my-sell-desc .price {
     font-size: 1.5em;
+    position: absolute;
+    bottom: 2.7em;
 }
 
 .amobile .my-sell-desc .city {
     font-size: 1.2em;
+    position: absolute;
+    bottom: 2em;
 }
 .amobile .my-sell-desc-but {
     padding: 0;
@@ -1306,7 +1310,7 @@
 .amobile .chat-messages.avito_end .chat-message-mes {
     padding: 1em;
     margin: 0 0 0 1em;
-    line-height: 1.9em;
+    line-height: 1.7em;
 }
 
 .amobile .chat-messages.avito_end .chat-message-mes span {
@@ -1380,7 +1384,7 @@
 }
 
 .amobile .result .chat-on {
-    min-height: 14.7em;
+    min-height: 12.7em;
 }
 
 .amobile .billy.result .chat-body {
@@ -1474,4 +1478,8 @@
 
 .amobile .mob-r-nav-hero img.hello-message {
     width: 12em;
+}
+
+.App a.tipo-link,  .tipo-link {
+    color: #47A3F0;
 }

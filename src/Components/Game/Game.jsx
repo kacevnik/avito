@@ -22,7 +22,7 @@ function Game({ game, overlayBlur, gameData, mobile }) {
 
     const { onFinalSellBuy, chanheResult, changeLevel, onOverlayBlur, selectHero } = useContext(Context);
 
-    const { name, img, hero, data, result, push } = game;
+    const { name, named, img, hero, data, result, push } = game;
     const [show, setShow] = useState('mess_empty');
     const [userTap, setUserTap] = useState(['userTap']);
     const [mesAnime, setMesAnime] = useState(['chat-on']);
@@ -221,10 +221,10 @@ function Game({ game, overlayBlur, gameData, mobile }) {
     }, [mesAnime, chatMessData])
 
     let url = ''
-    const urlProgect = 'https://medialeaks.ru/igra-smozhesh-li-tyi-ustroit-legendarnuyu-vecherinku/'
-    const title = 'Я помог ' + name + ' с покупками через Авито. Теперь твоя очередь!'
-    const desc = 'Я помог ' + name + ' с покупками через Авито. Теперь твоя очередь!'
-    const pimg = 'https://medialeaks.ru/igra-smozhesh-li-tyi-ustroit-legendarnuyu-vecherinku/'
+    const urlProgect = 'https://medialeaks.ru/pomogi_zvezdam_na_avito/' + hero + '.html'
+    const title = 'Я помог ' + named + ' с покупками через Авито. Теперь твоя очередь!'
+    const desc = 'Я помог ' + named + ' с покупками через Авито. Теперь твоя очередь!'
+    const pimg = 'https://medialeaks.ru/wp-content/uploads/2020/04/' + hero + '.jpg'
 
     const shareVk = () => {
         url = 'http://vkontakte.ru/share.php?';
@@ -249,7 +249,7 @@ function Game({ game, overlayBlur, gameData, mobile }) {
         url += '&p[title]=' + encodeURIComponent(title);
         url += '&p[summary]=' + encodeURIComponent(desc);
         url += '&p[url]=' + encodeURIComponent(urlProgect);
-        url += '&p[images][0]=' + encodeURIComponent(urlProgect);
+        url += '&p[images][0]=' + encodeURIComponent(pimg);
         window.open(url, '', 'toolbar=0,status=0,width=626,height=436');
     }
 
@@ -532,7 +532,7 @@ function Game({ game, overlayBlur, gameData, mobile }) {
                                 <span>Помочь другому</span>
                             </div>
                             <div className="chang-hero">
-                                <span>Поделится</span>
+                                <span>Поделиться</span>
                                 <img src={vk} alt="Вконтакте" onClick={() => shareVk()} />
                                 <img src={tw} alt="Twitter" onClick={() => shareTwitter()} />
                                 <img src={fb} alt="Facebook" onClick={() => shareFacebook()} />
