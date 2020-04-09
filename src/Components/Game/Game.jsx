@@ -373,8 +373,8 @@ function Game({ game, overlayBlur, gameData, mobile }) {
                     </div>
                     <div className="mob-sell-buy">
                         <div className="mob-sell-buy-title">
-                            <div className="mob-sell-buy-item">Хочу купить:</div>
                             <div className="mob-sell-buy-item">Хочу продать:</div>
+                            <div className="mob-sell-buy-item">Хочу купить:</div>
                         </div>
                         <div className="mob-sell-buy-content">
                             <div className="mob-sell-buy-wrap" onClick={() => onSetShowW('sell')} >
